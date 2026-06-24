@@ -13,9 +13,9 @@ Dieser Klon wurde aus dem Quell-OS (Template) geklont. Das Template entwickelt s
 
 ## Step 1 — Manifest lesen
 
-Read `os-manifest.md` im Repo-Root. Das Manifest listet exakt, welche Pfade zur OS-Ebene gehören. Diese Liste ist die Quelle der Wahrheit für das, was aktualisiert wird.
+Read `references/os-sync.md`. Das Manifest listet exakt, welche Pfade zur OS-Ebene gehören. Diese Liste ist die Quelle der Wahrheit für das, was aktualisiert wird.
 
-Wenn `os-manifest.md` **nicht existiert**, nutze diese Standard-OS-Pfade und weise den User darauf hin, dass kein Manifest gefunden wurde:
+Wenn `references/os-sync.md` **nicht existiert**, nutze diese Standard-OS-Pfade und weise den User darauf hin, dass kein Manifest gefunden wurde:
 
 ```
 .claude/skills/

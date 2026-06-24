@@ -18,11 +18,11 @@ Prüfe, dass der Klon NICHT selbst das Quell-OS ist (Pfad-Vergleich). Wenn doch,
 
 ## Step 1 — Manifest lesen
 
-Read `os-sync.md` im Klon-Root. Das Manifest listet:
+Read `references/os-sync.md` im Klon. Das Manifest listet:
 - **OS-Ebene** (darf promotet werden): z.B. `.claude/skills/`, `references/playbooks/`, `scripts/`, generische `references/`, `EXPANSIONS.md`, die Skill-Templates.
 - **Klon-Ebene** (NIEMALS promoten): `context/`, `assets/`, `intake/`, `decisions/`, `connections.md` (kundenspezifisch), `.env`, `CLAUDE.md` (klon-spezifisch befüllt).
 
-Wenn `os-sync.md` fehlt: Operator informieren, dass das Manifest die Quelle der Wahrheit ist, und mit der konservativen Default-Liste oben weitermachen — aber nur nach expliziter Freigabe.
+Wenn `references/os-sync.md` fehlt: Operator informieren, dass das Manifest die Quelle der Wahrheit ist, und mit der konservativen Default-Liste oben weitermachen — aber nur nach expliziter Freigabe.
 
 ## Step 2 — Diffen und auflisten
 
