@@ -18,9 +18,9 @@ Platzhalter — Werte und Auth-Details trägt `/onboard` pro Kunde ein. Default-
 
 | # | Schicht | Quelle | Liefert | Mechanismus | Auth | Zuletzt geprüft |
 |---|---|---|---|---|---|---|
-| 4 | Build | Git-Repo | Single Source of Truth der Seite | git (lokal, dieses Repo) | — | — |
-| 5 | Build | Hosting | Auslieferung der Seite | not yet connected | → offen | — |
-| 6 | Build | Domain / Registrar | DNS, Go-Live-Records | not yet connected | → offen | — |
+| 4 | Build | Git-Repo | Single Source of Truth der Seite | git · `origin` = github.com/pascal635/website-steine-steuern (privat); Kit als Remote `aios-kit` | gh (pascal635) | 2026-07-03 ✅ |
+| 5 | Build | Hosting (Hetzner-Webspace) | Auslieferung der Seite | **CI/CD** · Push auf `main` → GitHub Actions `deploy.yml` → Build → FTPS-Upload (lftp) nach dist/ | FTP-Account `steineaf_0` @ www549.your-server.de · Secrets im Repo (FTP_SERVER/USERNAME/PASSWORD) · lokal in `.env` | 2026-07-03 ✅ live |
+| 6 | Build | Domain / Registrar | DNS, Go-Live-Records | Subdomain **friends.steine-steuern.de** → 178.105.73.247 (DNS steht, FTP-Root = Docroot) | — | 2026-07-03 ✅ HTTP · ⚠️ SSL im Hetzner-Panel noch aktivieren |
 | 7 | Monitor | Google Search Console | Impressions, Klicks, Rankings, Indexierung | not yet connected | → offen | — |
 | 8 | Monitor | Google Ads | Kosten, Conversions, Suchbegriffe | not yet connected | → offen | — |
 | 9 | Monitor | Meta Ads | Reichweite, Lead-Kosten, Creatives | not yet connected | → offen | — |
