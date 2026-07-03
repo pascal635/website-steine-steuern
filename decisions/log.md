@@ -38,6 +38,16 @@ Terse halten. Das *Warum* festhalten, nicht nur das *Was*.
 
 **Owner:** Pascal.
 
+## 2026-07-03 — Erweiterte Datenschutzerklärung (Entwurf) + Fonts self-hosted
+
+**Decision:** Die dünne, übernommene Datenschutzerklärung wurde durch eine erweiterte, LP-spezifische Fassung ersetzt (`src/pages/datenschutz.astro`, Stand Juli 2026). Abschnitte: Verantwortlicher, Pflichtinfos (Rechtsgrundlagen, Widerruf, Art. 21, Beschwerde/Aufsichtsbehörde Bremen, Betroffenenrechte, Speicherdauer, TLS), Hosting (Hetzner), Server-Logs, Cookies & Consent, Lead-Formular, ActiveCampaign, WhatsApp, Matomo, Google Ads/Conversion, Meta-Pixel, self-hosted Fonts. Zusätzlich: **Google Fonts self-gehostet** (`public/assets/fonts/`, @font-face in global.css, Google-CDN-Links entfernt) — beseitigt IP-Übertragung an Google (LG-München-Risiko) und verbessert LCP.
+
+**Why:** DSGVO-konforme Grundlage vor dem Schalten von Ads/Tracking. Self-hosted Fonts vermeiden einen ganzen Drittland-Transfer-Abschnitt und ein bekanntes Abmahnrisiko.
+
+**⚠️ Status = ENTWURF, anwaltlich prüfen lassen.** Offene Annahmen (im Datei-Header dokumentiert): Matomo als selbst-gehostet angenommen (bei Matomo Cloud anpassen); Consent-Tool/CMP noch nicht benannt und noch nicht eingebaut — die Marketing-Dienste (Matomo/Google/Meta) sind aktuell NICHT geladen und dürfen erst nach CMP + Einwilligung aktiviert werden; Kontakt-Mail final festlegen (info@steine-steuern.de vs info@jota-projekte.de). AGB weiterhin Platzhalter.
+
+**Owner:** Pascal.
+
 ## 2026-07-03 — Leadmagnet-Landingpage gebaut (Astro-Scaffold + Steuer-Playbook-LP)
 
 **Decision:** Erste Seite des Klons ist die Leadmagnet-LP für das kostenlose Steuer-Playbook. Astro + Tailwind (v4) neu aufgesetzt, CI aus `assets/ci/` in `src/styles/global.css` auf die design-system-Token-Namen gemappt. Ein Conversion-Ziel: Formular-Ausfüllung. Alle CTAs (Gold-Button, CI-konform "nur primäre Buttons") scrollen auf **ein** Formular (`#playbook`).

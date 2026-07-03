@@ -126,13 +126,9 @@ const jsonLd = {
     <meta property="og:site_name" content="steine steuern FRIENDS" />
     <meta name="twitter:card" content="summary_large_image" />
 
-    <!-- Fonts: Baskervville (Display) + Host Grotesk (Text) -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Baskervville:ital@0;1&family=Host+Grotesk:ital,wght@0,300..800;1,300..800&display=swap"
-    />
+    <!-- Fonts: self-hosted (DSGVO, kein Google-CDN) — @font-face in global.css -->
+    <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/hostgrotesk-normal-latin.woff2" crossorigin />
+    <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/baskervville-normal-latin.woff2" crossorigin />
 
     <!-- Hero-Bild vorpriorisieren (LCP) -->
     <link

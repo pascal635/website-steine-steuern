@@ -1,78 +1,215 @@
 ---
 import Legal from "../layouts/Legal.astro";
-// Uebernommen von https://steine-steuern.de/datenschutz/ (gleicher Betreiber: Jotavent UG).
-// Domain an diese Subdomain angepasst. Stand wie Quelle.
+/*
+  ENTWURF — vor Livegang von Ads/Tracking anwaltlich pruefen lassen.
+  Erweiterte, LP-spezifische Datenschutzerklaerung fuer friends.steine-steuern.de.
+  Deckt ab: Hosting (Hetzner), Server-Logs, Cookies/Consent, Lead-Formular,
+  ActiveCampaign, WhatsApp, Matomo, Google Ads/Conversion, Meta-Pixel, self-hosted Fonts.
+
+  OFFENE ANNAHMEN (von Pascal bestaetigen lassen):
+  - Matomo: als SELBST-GEHOSTET angenommen (kein Drittland-Transfer). Bei Matomo Cloud
+    (InnoCraft Ltd., Neuseeland) den Abschnitt anpassen.
+  - Consent-Tool (CMP): noch nicht benannt -> unter "Cookies & Einwilligung" konkreten
+    Anbieter eintragen, sobald gewaehlt.
+  - Kontakt-Mail: Impressum nutzt info@steine-steuern.de, alte Datenschutz-Quelle
+    info@jota-projekte.de -> hier info@steine-steuern.de gesetzt; final festlegen.
+  - Marketing-/Tracking-Tools laden erst NACH Einwilligung; solange kein CMP live ist,
+    sind diese Abschnitte "auf Vorrat" und greifen erst mit Aktivierung.
+*/
 ---
-<Legal title="Datenschutzerkl&auml;rung" stand="12. Februar 2024">
+<Legal title="Datenschutzerkl&auml;rung" stand="Juli 2026">
+
+  <h2>1. Verantwortlicher</h2>
+  <p>Verantwortlicher f&uuml;r die Datenverarbeitung auf dieser Website ist:</p>
+  <address>
+    Jotavent UG (haftungsbeschr&auml;nkt)<br />
+    Jasper Jeroen Schouw<br />
+    Wachmannstr. 81<br />
+    28209 Bremen<br />
+    E-Mail: <a href="mailto:info@steine-steuern.de">info@steine-steuern.de</a>
+  </address>
   <p>
-    Die Jotavent UG (haftungsbeschr&auml;nkt) (im Folgenden als &bdquo;wir&ldquo;, &bdquo;uns&ldquo;
-    oder &bdquo;unser&ldquo; bezeichnet) legt gro&szlig;en Wert auf den Schutz Ihrer pers&ouml;nlichen
-    Daten. Diese Datenschutzerkl&auml;rung erl&auml;utert, welche Informationen wir auf der Website
-    friends.steine-steuern.de sammeln, wie wir sie verwenden und wie wir sie sch&uuml;tzen.
+    Verantwortliche Stelle ist die nat&uuml;rliche oder juristische Person, die allein oder gemeinsam
+    mit anderen &uuml;ber die Zwecke und Mittel der Verarbeitung von personenbezogenen Daten
+    entscheidet.
   </p>
 
-  <h2>1. Erhebung und Verwendung von personenbezogenen Daten</h2>
-  <h3>a. Personenbezogene Daten, die Sie uns zur Verf&uuml;gung stellen</h3>
+  <h2>2. Allgemeine Hinweise und Pflichtinformationen</h2>
+  <h3>Rechtsgrundlagen der Verarbeitung</h3>
   <p>
-    Wir erfassen personenbezogene Daten, die Sie uns freiwillig zur Verf&uuml;gung stellen, wenn Sie
-    unsere Website besuchen oder unsere Dienste nutzen. Dies kann Name, E-Mail-Adresse, Telefonnummer
-    und andere Informationen umfassen, die Sie uns &uuml;ber Formulare oder auf andere Weise zur
-    Verf&uuml;gung stellen.
+    Wir verarbeiten personenbezogene Daten nur auf einer g&uuml;ltigen Rechtsgrundlage. Je nach
+    Verarbeitung sind dies insbesondere Ihre Einwilligung (Art. 6 Abs. 1 lit. a und Art. 9 Abs. 2
+    lit. a DSGVO sowie &sect; 25 Abs. 1 TDDDG f&uuml;r das Speichern/Auslesen von Informationen auf
+    Ihrem Endger&auml;t), die Erf&uuml;llung eines Vertrags bzw. vorvertragliche Ma&szlig;nahmen
+    (Art. 6 Abs. 1 lit. b DSGVO), die Erf&uuml;llung rechtlicher Verpflichtungen (Art. 6 Abs. 1 lit.
+    c DSGVO) sowie unsere berechtigten Interessen (Art. 6 Abs. 1 lit. f DSGVO).
   </p>
-  <h3>b. Automatisch erfasste Informationen</h3>
+  <h3>Widerruf Ihrer Einwilligung</h3>
   <p>
-    Wenn Sie unsere Website besuchen, k&ouml;nnen wir automatisch bestimmte Informationen &uuml;ber
-    Ihren Besuch erfassen, einschlie&szlig;lich Ihrer IP-Adresse, Browsertyp, Betriebssystem, besuchte
-    Seiten und Verweildauer auf der Website. Diese Informationen werden verwendet, um die Leistung der
-    Website zu verbessern und Trends zu analysieren.
+    Viele Datenverarbeitungen sind nur mit Ihrer ausdr&uuml;cklichen Einwilligung m&ouml;glich. Sie
+    k&ouml;nnen eine bereits erteilte Einwilligung jederzeit widerrufen. Die Rechtm&auml;&szlig;igkeit
+    der bis zum Widerruf erfolgten Datenverarbeitung bleibt vom Widerruf unber&uuml;hrt.
   </p>
-
-  <h2>2. Verwendungszweck und Rechtsgrundlage f&uuml;r die Verarbeitung personenbezogener Daten</h2>
+  <h3>Widerspruchsrecht (Art. 21 DSGVO)</h3>
   <p>
-    a. Wir verwenden Ihre personenbezogenen Daten, um Ihre Anfragen zu bearbeiten, Ihnen die
-    angeforderten Dienste bereitzustellen und Ihnen relevante Informationen zukommen zu lassen.
+    Werden Ihre Daten auf Grundlage von Art. 6 Abs. 1 lit. f DSGVO verarbeitet, haben Sie das Recht,
+    aus Gr&uuml;nden, die sich aus Ihrer besonderen Situation ergeben, jederzeit Widerspruch gegen
+    diese Verarbeitung einzulegen; dies gilt auch f&uuml;r ein hierauf gest&uuml;tztes Profiling.
+    Werden Ihre Daten zum Zwecke der Direktwerbung verarbeitet, haben Sie das Recht, jederzeit
+    Widerspruch einzulegen.
   </p>
+  <h3>Beschwerderecht bei der Aufsichtsbeh&ouml;rde</h3>
   <p>
-    b. Die Verarbeitung Ihrer personenbezogenen Daten erfolgt auf der Grundlage Ihrer Einwilligung,
-    die Sie durch die Nutzung unserer Dienste erteilt haben, sowie zur Erf&uuml;llung rechtlicher
-    Verpflichtungen oder zur Wahrung berechtigter Interessen.
+    Ihnen steht ein Beschwerderecht bei einer Datenschutz-Aufsichtsbeh&ouml;rde zu, insbesondere in
+    dem Mitgliedstaat Ihres gew&ouml;hnlichen Aufenthalts oder des Orts des mutma&szlig;lichen
+    Versto&szlig;es. Zust&auml;ndig f&uuml;r den Verantwortlichen ist: Die Landesbeauftragte f&uuml;r
+    Datenschutz und Informationsfreiheit der Freien Hansestadt Bremen.
   </p>
-
-  <h2>3. Weitergabe von personenbezogenen Daten</h2>
+  <h3>Ihre weiteren Rechte</h3>
   <p>
-    a. Wir geben Ihre personenbezogenen Daten nicht an Dritte weiter, es sei denn, dies ist zur
-    Erf&uuml;llung unserer vertraglichen Verpflichtungen oder gesetzlicher Anforderungen erforderlich.
+    Sie haben das Recht auf Auskunft (Art. 15), Berichtigung (Art. 16), L&ouml;schung (Art. 17),
+    Einschr&auml;nkung der Verarbeitung (Art. 18) und Daten&uuml;bertragbarkeit (Art. 20 DSGVO).
+    Wenden Sie sich hierzu jederzeit an die oben genannte Adresse.
   </p>
+  <h3>Speicherdauer</h3>
   <p>
-    b. Unter bestimmten Umst&auml;nden k&ouml;nnen wir Dienstleister oder Partnerunternehmen
-    beauftragen, die uns bei der Bereitstellung unserer Dienste unterst&uuml;tzen. In solchen
-    F&auml;llen stellen wir sicher, dass diese Dritten angemessene Datenschutzma&szlig;nahmen treffen.
+    Soweit keine speziellere Speicherdauer genannt wird, verbleiben Ihre Daten bei uns, bis der Zweck
+    der Verarbeitung entf&auml;llt, Sie ein berechtigtes L&ouml;schersuchen stellen oder eine
+    erteilte Einwilligung widerrufen. Gesetzliche Aufbewahrungsfristen (z.&nbsp;B. handels- und
+    steuerrechtliche) bleiben unber&uuml;hrt.
   </p>
-
-  <h2>4. Datensicherheit</h2>
+  <h3>SSL-/TLS-Verschl&uuml;sselung</h3>
   <p>
-    Wir treffen angemessene technische und organisatorische Ma&szlig;nahmen, um Ihre personenbezogenen
-    Daten vor unbefugtem Zugriff, Verlust, Missbrauch oder Manipulation zu sch&uuml;tzen.
-  </p>
-
-  <h2>5. Ihre Rechte</h2>
-  <p>
-    Sie haben das Recht, Auskunft &uuml;ber die von uns &uuml;ber Sie gespeicherten personenbezogenen
-    Daten zu erhalten, diese zu berichtigen, zu l&ouml;schen oder deren Verarbeitung einzuschr&auml;nken.
-    Dar&uuml;ber hinaus haben Sie das Recht, der Verarbeitung Ihrer Daten zu widersprechen und Ihre
-    Einwilligung jederzeit zu widerrufen.
-  </p>
-
-  <h2>6. &Auml;nderungen dieser Datenschutzerkl&auml;rung</h2>
-  <p>
-    Wir behalten uns das Recht vor, diese Datenschutzerkl&auml;rung jederzeit zu &auml;ndern.
-    &Auml;nderungen werden auf dieser Website ver&ouml;ffentlicht.
+    Diese Seite nutzt aus Sicherheitsgr&uuml;nden eine SSL-/TLS-Verschl&uuml;sselung. Eine
+    verschl&uuml;sselte Verbindung erkennen Sie am &bdquo;https://&ldquo; in der Adresszeile Ihres
+    Browsers.
   </p>
 
-  <h2>7. Kontakt</h2>
+  <h2>3. Hosting</h2>
   <p>
-    Wenn Sie Fragen oder Bedenken bez&uuml;glich unserer Datenschutzerkl&auml;rung haben oder Ihre
-    Rechte aus&uuml;ben m&ouml;chten, kontaktieren Sie uns bitte unter
-    <a href="mailto:info@jota-projekte.de">info@jota-projekte.de</a>.
+    Diese Website wird bei einem externen Dienstleister gehostet (Auftragsverarbeiter). Die
+    personenbezogenen Daten, die auf dieser Website erfasst werden, werden auf den Servern des Hosters
+    gespeichert. Anbieter ist:
   </p>
+  <address>
+    Hetzner Online GmbH<br />
+    Industriestr. 25<br />
+    91710 Gunzenhausen, Deutschland
+  </address>
+  <p>
+    Der Einsatz erfolgt zum Zweck einer sicheren, schnellen und zuverl&auml;ssigen Bereitstellung
+    unseres Angebots (Art. 6 Abs. 1 lit. f DSGVO). Mit dem Anbieter besteht ein Vertrag &uuml;ber
+    Auftragsverarbeitung (AVV) gem&auml;&szlig; Art. 28 DSGVO.
+  </p>
+
+  <h2>4. Server-Log-Dateien</h2>
+  <p>
+    Der Provider der Seiten erhebt und speichert automatisch Informationen in sogenannten
+    Server-Log-Dateien, die Ihr Browser automatisch &uuml;bermittelt. Dies sind: Browsertyp und
+    Browserversion, verwendetes Betriebssystem, Referrer-URL, Hostname des zugreifenden Rechners,
+    Uhrzeit der Serveranfrage und die IP-Adresse. Eine Zusammenf&uuml;hrung dieser Daten mit anderen
+    Datenquellen wird nicht vorgenommen. Die Erfassung erfolgt auf Grundlage von Art. 6 Abs. 1 lit. f
+    DSGVO zum Zweck des technisch fehlerfreien und sicheren Betriebs der Website.
+  </p>
+
+  <h2>5. Cookies &amp; Einwilligung</h2>
+  <p>
+    Unsere Website verwendet technisch notwendige Cookies, die f&uuml;r den Betrieb erforderlich sind
+    (Rechtsgrundlage Art. 6 Abs. 1 lit. f DSGVO bzw. &sect; 25 Abs. 2 TDDDG). Cookies und vergleichbare
+    Technologien, die nicht technisch notwendig sind (insbesondere f&uuml;r Analyse und Marketing),
+    setzen wir nur auf Grundlage Ihrer Einwilligung ein (Art. 6 Abs. 1 lit. a DSGVO, &sect; 25 Abs. 1
+    TDDDG).
+  </p>
+  <p>
+    {/* PLATZHALTER: konkretes Consent-Management-Tool (CMP) benennen, sobald gewaehlt. */}
+    Die Einwilligung holen wir &uuml;ber ein Consent-Management-Tool ein. Dort k&ouml;nnen Sie Ihre
+    Auswahl jederzeit aufrufen und mit Wirkung f&uuml;r die Zukunft &auml;ndern oder widerrufen. Ohne
+    Ihre Einwilligung werden die nachfolgend beschriebenen Analyse- und Marketing-Dienste nicht
+    geladen.
+  </p>
+
+  <h2>6. Lead-Formular (Playbook-Anfrage)</h2>
+  <p>
+    &Uuml;ber das Formular auf dieser Seite k&ouml;nnen Sie das kostenlose Steuer-Playbook anfordern.
+    Dabei verarbeiten wir die von Ihnen angegebenen Daten: Vorname, E-Mail-Adresse und optional Ihre
+    Telefon-/WhatsApp-Nummer. Diese Daten nutzen wir, um Ihnen das Playbook zuzusenden und Ihnen
+    weitere Informationen zum Thema Immobilien und Steuern zukommen zu lassen.
+  </p>
+  <p>
+    Rechtsgrundlage ist Ihre Einwilligung (Art. 6 Abs. 1 lit. a DSGVO) sowie, soweit auf die
+    Durchf&uuml;hrung vorvertraglicher Ma&szlig;nahmen gerichtet, Art. 6 Abs. 1 lit. b DSGVO. Ihre
+    Einwilligung k&ouml;nnen Sie jederzeit widerrufen, z.&nbsp;B. per E-Mail an uns oder &uuml;ber den
+    Abmeldelink in jeder Nachricht. Die Daten verbleiben bei uns, bis Sie den Widerruf erkl&auml;ren
+    bzw. der Zweck entf&auml;llt.
+  </p>
+
+  <h2>7. E-Mail-Marketing &uuml;ber ActiveCampaign</h2>
+  <p>
+    F&uuml;r den Versand des Playbooks und unserer E-Mails nutzen wir den Dienst ActiveCampaign.
+    Anbieter ist die ActiveCampaign, LLC, 1 North Dearborn Street, 5th Floor, Chicago, Illinois 60602,
+    USA. ActiveCampaign erm&ouml;glicht die Organisation und Analyse des Versands. Die von Ihnen zum
+    Zwecke des Bezugs eingegebenen Daten werden auf den Servern des Anbieters gespeichert.
+  </p>
+  <p>
+    Die Anmeldung erfolgt im sogenannten Double-Opt-In-Verfahren, d.&nbsp;h. Sie erhalten nach der
+    Anmeldung eine E-Mail, in der Sie Ihre Anmeldung best&auml;tigen. So stellen wir sicher, dass nur
+    der Inhaber der E-Mail-Adresse die Anmeldung veranlassen kann. Rechtsgrundlage ist Ihre
+    Einwilligung (Art. 6 Abs. 1 lit. a DSGVO). Mit dem Anbieter besteht ein Auftragsverarbeitungs-
+    vertrag (Art. 28 DSGVO). Die Datenverarbeitung kann eine &Uuml;bermittlung in die USA umfassen;
+    Grundlage hierf&uuml;r sind die Standardvertragsklauseln der EU-Kommission und ggf. eine
+    Zertifizierung nach dem EU-US Data Privacy Framework.
+  </p>
+
+  <h2>8. Kontaktaufnahme &uuml;ber WhatsApp</h2>
+  <p>
+    Auf Wunsch senden wir Ihnen das Playbook und Informationen &uuml;ber WhatsApp zu, sofern Sie uns
+    hierf&uuml;r Ihre Nummer angeben und einwilligen. Anbieter ist die WhatsApp Ireland Limited, 4
+    Grand Canal Square, Grand Canal Harbour, Dublin 2, Irland. Bei der Kommunikation &uuml;ber
+    WhatsApp werden Verbindungs- und Nutzungsdaten durch den Anbieter verarbeitet; hierauf haben wir
+    nur eingeschr&auml;nkt Einfluss. Rechtsgrundlage ist Ihre Einwilligung (Art. 6 Abs. 1 lit. a
+    DSGVO). Sie k&ouml;nnen diesem Kommunikationsweg jederzeit widersprechen.
+  </p>
+
+  <h2>9. Webanalyse mit Matomo</h2>
+  <p>
+    Sofern Sie einwilligen, nutzen wir Matomo zur Analyse des Nutzungsverhaltens auf unserer Website.
+    Matomo wird von uns selbst gehostet; die erhobenen Daten verbleiben auf unserer Server-Infrastruktur
+    und werden nicht an Dritte weitergegeben. Wir setzen die IP-Anonymisierung ein, sodass Ihre
+    IP-Adresse gek&uuml;rzt verarbeitet wird. Erfasst werden z.&nbsp;B. besuchte Seiten, Verweildauer,
+    ungef&auml;hre Herkunft (Region) und verwendetes Endger&auml;t. Rechtsgrundlage ist Ihre
+    Einwilligung (Art. 6 Abs. 1 lit. a DSGVO, &sect; 25 Abs. 1 TDDDG). Ein Google-Analytics-/GA4-Einsatz
+    findet nicht statt.
+  </p>
+
+  <h2>10. Google Ads und Conversion-Tracking</h2>
+  <p>
+    Sofern Sie einwilligen, nutzen wir Google Ads inkl. Conversion-Tracking. Anbieter ist die Google
+    Ireland Limited, Gordon House, Barrow Street, Dublin 4, Irland. Damit erkennen wir, ob eine
+    Handlung (z.&nbsp;B. das Absenden des Formulars) nach dem Klick auf eine unserer Anzeigen erfolgt
+    ist, um die Wirksamkeit unserer Werbung zu messen. Dabei k&ouml;nnen Cookies gesetzt und Daten in
+    die USA (Google LLC) &uuml;bermittelt werden; Grundlage sind die Standardvertragsklauseln und die
+    Zertifizierung nach dem EU-US Data Privacy Framework. Rechtsgrundlage ist Ihre Einwilligung (Art. 6
+    Abs. 1 lit. a DSGVO, &sect; 25 Abs. 1 TDDDG).
+  </p>
+
+  <h2>11. Meta-Pixel (Facebook/Instagram)</h2>
+  <p>
+    Sofern Sie einwilligen, nutzen wir den Meta-Pixel. Anbieter ist die Meta Platforms Ireland
+    Limited, 4 Grand Canal Square, Grand Canal Harbour, Dublin 2, Irland. Der Pixel erm&ouml;glicht es,
+    Besucher unserer Website als Zielgruppe f&uuml;r die Ausspielung von Anzeigen zu bestimmen
+    (Custom Audiences) und den Erfolg von Anzeigen zu messen. Dabei k&ouml;nnen Cookies gesetzt und
+    Daten in die USA (Meta Platforms, Inc.) &uuml;bermittelt werden; Grundlage sind die
+    Standardvertragsklauseln und die Zertifizierung nach dem EU-US Data Privacy Framework. Hinsichtlich
+    bestimmter Verarbeitungen besteht eine gemeinsame Verantwortlichkeit mit Meta gem&auml;&szlig;
+    Art. 26 DSGVO. Rechtsgrundlage ist Ihre Einwilligung (Art. 6 Abs. 1 lit. a DSGVO, &sect; 25 Abs. 1
+    TDDDG).
+  </p>
+
+  <h2>12. Schriftarten (self-hosted)</h2>
+  <p>
+    Zur einheitlichen Darstellung nutzt diese Website Schriftarten, die wir lokal auf unserem eigenen
+    Server bereitstellen. Es werden dabei keine Daten an Dritte (etwa Google Fonts) &uuml;bermittelt;
+    beim Aufruf der Seite werden die Schriften direkt von unserem Server geladen.
+  </p>
+
 </Legal>
