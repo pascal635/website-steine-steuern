@@ -1,7 +1,7 @@
 ---
 import "../styles/global.css";
-interface Props { title: string; }
-const { title } = Astro.props;
+interface Props { title: string; stand?: string; }
+const { title, stand } = Astro.props;
 ---
 <!doctype html>
 <html lang="de">
@@ -16,14 +16,27 @@ const { title } = Astro.props;
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baskervville:ital@0;1&family=Host+Grotesk:ital,wght@0,300..800;1,300..800&display=swap" />
   </head>
   <body>
-    <main class="container section" style="max-width:760px">
-      <p><a href="/" style="color:var(--color-primary-hover)">&larr; Zurück zur Startseite</a></p>
-      <h1 style="font-size:var(--text-3xl);margin-block:var(--space-6) var(--space-4)">{title}</h1>
-      <div style="background:var(--color-danger-bg);border:1px solid rgba(226,58,14,0.25);border-radius:var(--radius-md);padding:var(--space-6);color:var(--color-fg)">
-        <strong>Platzhalter.</strong> Dieser Rechtstext wird vom Kunden geliefert bzw. anwaltlich
-        geprüfte Inhalte werden hier eingesetzt, bevor die Seite live geht.
+    <main class="legal container">
+      <p><a class="legal__back" href="/">&larr; Zurueck zur Startseite</a></p>
+      <h1 class="legal__h1">{title}</h1>
+      {stand && <p class="legal__stand">Stand: {stand}</p>}
+      <div class="legal__body">
+        <slot />
       </div>
-      <div style="margin-top:var(--space-8)"><slot /></div>
     </main>
+
+    <style>
+      .legal { max-width: 760px; padding-block: var(--space-16); }
+      .legal__back { color: var(--color-primary-hover); text-decoration: none; font-size: var(--text-sm); font-weight: var(--weight-medium); }
+      .legal__h1 { font-size: var(--text-3xl); margin-block: var(--space-6) var(--space-2); }
+      .legal__stand { color: var(--color-fg-subtle); font-size: var(--text-sm); margin-bottom: var(--space-8); }
+      .legal__body :global(h2) { font-family: var(--font-head); font-size: var(--text-xl); margin-block: var(--space-8) var(--space-3); }
+      .legal__body :global(h3) { font-size: var(--text-lg); font-weight: var(--weight-bold); margin-block: var(--space-6) var(--space-2); }
+      .legal__body :global(p) { color: var(--color-fg-muted); margin-bottom: var(--space-4); }
+      .legal__body :global(address) { font-style: normal; color: var(--color-fg); margin-bottom: var(--space-4); line-height: 1.7; }
+      .legal__body :global(a) { color: var(--color-primary-hover); }
+      .legal__note { background: var(--color-danger-bg); border: 1px solid rgba(226,58,14,0.25); border-radius: var(--radius-md); padding: var(--space-6); color: var(--color-fg); margin-bottom: var(--space-8); }
+      .legal__note strong { color: var(--color-danger); }
+    </style>
   </body>
 </html>

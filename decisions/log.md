@@ -28,6 +28,16 @@ Terse halten. Das *Warum* festhalten, nicht nur das *Was*.
 
 **Owner:** Pascal.
 
+## 2026-07-03 — Rechtstexte von der Hauptseite übernommen
+
+**Decision:** Impressum und Datenschutzerklärung wurden 1:1 von https://steine-steuern.de/impressum/ bzw. /datenschutz/ übernommen (gleicher Betreiber: Jotavent UG (haftungsbeschränkt), Bremen). In der Datenschutzerklärung wurde nur die Domain an `friends.steine-steuern.de` angepasst. AGB bleiben Platzhalter (keine Quelle geliefert).
+
+**Why:** Selber rechtlicher Betreiber, daher gelten dieselben Angaben. Auf Wunsch von Pascal.
+
+**⚠️ Offene rechtliche Lücke (vor Ads/Tracking-Livegang schließen):** Die übernommene Datenschutzerklärung (Stand 12.02.2024) deckt die Besonderheiten DIESER LP NICHT ab: Lead-Formular über ActiveCampaign, geplantes Tracking (Matomo, Google-Ads-Conversion, Meta Pixel) und Hetzner-Hosting. Vor dem Schalten von Anzeigen bzw. Aktivierung des Trackings muss die Datenschutzerklärung um diese Punkte ergänzt werden (Auftragsverarbeiter, Cookies/Consent, Meta/Google Rechtsgrundlagen). Kontakt-Mail in der Quelle ist `info@jota-projekte.de` (abweichend von `info@steine-steuern.de` im Impressum) — von Pascal prüfen lassen.
+
+**Owner:** Pascal.
+
 ## 2026-07-03 — Leadmagnet-Landingpage gebaut (Astro-Scaffold + Steuer-Playbook-LP)
 
 **Decision:** Erste Seite des Klons ist die Leadmagnet-LP für das kostenlose Steuer-Playbook. Astro + Tailwind (v4) neu aufgesetzt, CI aus `assets/ci/` in `src/styles/global.css` auf die design-system-Token-Namen gemappt. Ein Conversion-Ziel: Formular-Ausfüllung. Alle CTAs (Gold-Button, CI-konform "nur primäre Buttons") scrollen auf **ein** Formular (`#playbook`).
