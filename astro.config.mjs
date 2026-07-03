@@ -1,11 +1,12 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
 import tailwindcss from '@tailwindcss/vite';
+import sitemap from '@astrojs/sitemap';
 
-// HINWEIS: `site` ist ein Platzhalter, bis die finale LP-Domain feststeht.
-// Wird fuer Canonical + JSON-LD @id genutzt. Beim Launch anpassen.
+// Live-Domain der LP. Wird fuer Canonical, JSON-LD @id und Sitemap genutzt.
 export default defineConfig({
-  site: 'https://steine-steuern.de',
+  site: 'https://friends.steine-steuern.de',
+  integrations: [sitemap()],
   vite: {
     plugins: [tailwindcss()],
   },

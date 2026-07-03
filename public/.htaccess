@@ -1,0 +1,42 @@
+# Apache-Konfig fuer den Hetzner-Webspace (friends.steine-steuern.de).
+# Liegt in public/ -> Astro kopiert es unveraendert nach dist/ -> Web-Root.
+
+# --- HTTPS erzwingen ---
+# ACHTUNG: Erst aktivieren, wenn im Hetzner-Panel ein SSL-Zertifikat
+# (Let's Encrypt) fuer friends.steine-steuern.de ausgestellt ist.
+# Vorher wuerde der Redirect auf ein ungueltiges Zertifikat zeigen.
+# <IfModule mod_rewrite.c>
+#   RewriteEngine On
+#   RewriteCond %{HTTPS} off
+#   RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+# </IfModule>
+
+# Eigene 404-Seite
+ErrorDocument 404 /404.html
+
+# Security-Header
+<IfModule mod_headers.c>
+  Header always set X-Content-Type-Options "nosniff"
+  Header always set X-Frame-Options "SAMEORIGIN"
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+  Header always set Permissions-Policy "geolocation=(), microphone=(), camera=()"
+  # HSTS erst nach SSL-Aktivierung einschalten:
+  # Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains"
+  Header unset X-Powered-By
+</IfModule>
+
+# Kompression
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/css application/javascript image/svg+xml application/xml
+</IfModule>
+
+# Caching: gehashte Assets lange, HTML kurz
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType text/css "access plus 30 days"
+  ExpiresByType application/javascript "access plus 30 days"
+  ExpiresByType image/webp "access plus 30 days"
+  ExpiresByType image/jpeg "access plus 30 days"
+  ExpiresByType image/svg+xml "access plus 30 days"
+  ExpiresByType text/html "access plus 0 seconds"
+</IfModule>
