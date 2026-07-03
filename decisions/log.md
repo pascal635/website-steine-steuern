@@ -27,3 +27,19 @@ Terse halten. Das *Warum* festhalten, nicht nur das *Was*.
 **Alternatives considered:** Next.js (mächtiger, aber Overkill für Content-Seiten, schlechtere CWV-Baseline, Node-Hosting aufwändiger, mehr Agent-Footguns). WordPress/CMS (nicht Git-nativ, DB-Zustand bricht das Kernprinzip, schlecht für Agent-Arbeit, höhere Betriebslast pro Klon).
 
 **Owner:** Pascal.
+
+## 2026-07-03 — Leadmagnet-Landingpage gebaut (Astro-Scaffold + Steuer-Playbook-LP)
+
+**Decision:** Erste Seite des Klons ist die Leadmagnet-LP für das kostenlose Steuer-Playbook. Astro + Tailwind (v4) neu aufgesetzt, CI aus `assets/ci/` in `src/styles/global.css` auf die design-system-Token-Namen gemappt. Ein Conversion-Ziel: Formular-Ausfüllung. Alle CTAs (Gold-Button, CI-konform "nur primäre Buttons") scrollen auf **ein** Formular (`#playbook`).
+
+**Why:** Stack war bereits entschieden (Astro), Kontext/Onboarding noch leer → CI direkt aus dem Manual extrahiert statt `/onboard` abzuwarten, um nicht zu blockieren. Abweichung von der Copy-Vorlage: der Standard-CTA-Block wird **einmal pro Sektion** gesetzt statt unter jedem Unterblock (Vorlage hätte 12+ CTAs ergeben → Choice-/Wiederholungs-Overload). FAQ-Sektion ergänzt (nicht in Vorlage) für Einwandbehandlung + FAQPage-Schema/GEO.
+
+**Offene Punkte (vor Launch):**
+- **ActiveCampaign-Formular:** aktuell natives Platzhalter-Formular mit Erfolgs-Fallback in `src/components/LeadForm.astro`. AC-Embed/Script von Pascal einsetzen (markierte Stelle), `data-track="lead"` übernehmen.
+- **Domain:** `site` in `astro.config.mjs` ist Platzhalter (`steine-steuern.de`) — für Canonical/JSON-LD/robots-Sitemap beim Launch setzen.
+- **Recht:** Datenschutz/Impressum/AGB sind noindex-Platzhalterseiten; Footer-Disclaimer als Platzhalter markiert → anwaltlich prüfen.
+- **Tracking:** Matomo + Google-Ads-Conversion + Meta Pixel als kommentierte Platzhalter in `Base.astro` (kein GA4) — IDs + Consent-Gating beim Launch.
+- **Social Proof:** echte Testimonials/Investoren-Zahl + Presse-/Partner-Logos fehlen (nicht geliefert) → beim Kunden anfordern; aktuell nur belegte Fakten im Trust-Band (70+/20+/Garantie).
+- **Fonts:** via Google Fonts eingebunden; optional Self-Hosting für letzten LCP-Feinschliff.
+
+**Owner:** Pascal.

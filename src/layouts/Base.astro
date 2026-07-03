@@ -1,0 +1,165 @@
+---
+import "../styles/global.css";
+
+interface Props {
+  title: string;
+  description: string;
+  /** relativer Pfad, z.B. "/" */
+  path?: string;
+  ogImage?: string;
+}
+
+const {
+  title,
+  description,
+  path = "/",
+  ogImage = "/assets/images/playbook-mockup-1129.webp",
+} = Astro.props;
+
+const site = Astro.site?.toString().replace(/\/$/, "") ?? "https://steine-steuern.de";
+const canonical = site + path;
+const stand = "Juli 2026";
+
+// Gestapeltes JSON-LD @graph — nur Sichtbares markiert.
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": `${site}/#organization`,
+      name: "steine steuern FRIENDS",
+      url: site,
+      description:
+        "Steueroptimierung & Vermögensaufbau mit Immobilien. Finanzamtsfeste Gutachten zur Restnutzungsdauer für Investoren.",
+      slogan: "Steueroptimierung & Vermögensaufbau mit Immobilien",
+      logo: {
+        "@type": "ImageObject",
+        url: `${site}/assets/logo/steine-steuern-logo-white.svg`,
+      },
+    },
+    {
+      "@type": "WebSite",
+      "@id": `${site}/#website`,
+      url: site,
+      name: "steine steuern FRIENDS",
+      publisher: { "@id": `${site}/#organization` },
+      inLanguage: "de-DE",
+    },
+    {
+      "@type": "Person",
+      "@id": `${site}/#jasper`,
+      name: "Jasper",
+      jobTitle: "Immobilieninvestor & Gründer",
+      description:
+        "Immobilieninvestor mit Fokus auf Fix & Hold. Ueber 70 Einheiten gekauft, über 20 gehandelt. Gründer von gutachten-nutzungsdauer.com.",
+      worksFor: { "@id": `${site}/#organization` },
+    },
+    {
+      "@type": "WebPage",
+      "@id": `${canonical}#webpage`,
+      url: canonical,
+      name: title,
+      description,
+      isPartOf: { "@id": `${site}/#website` },
+      inLanguage: "de-DE",
+      about: { "@id": `${site}/#organization` },
+    },
+    {
+      "@type": "FAQPage",
+      "@id": `${canonical}#faq`,
+      mainEntity: [
+        {
+          "@type": "Question",
+          name: "Was kostet das Steuer-Playbook?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Das Playbook ist kostenlos. Du trägst dich ein und bekommst es direkt per Mail oder WhatsApp zugeschickt.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "Ist das Playbook eine Steuerberatung?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Nein. Das Playbook ist ein Informationsleitfaden und keine Steuerberatung. Steuerliche Effekte hängen vom Einzelfall ab. Für eine verbindliche Einschätzung wende dich an einen Steuerberater.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "Für wen ist das Playbook geeignet?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Für Immobilienkäufer, Eigentümer, Vermieter und Investoren, die ihre Immobilien steuerlich richtig nutzen wollen — beim nächsten Kauf oder im bestehenden Bestand. Nicht geeignet für aggressive Modelle oder Grauzonen.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "Wie bekomme ich das Playbook nach der Anmeldung?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Nach dem Ausfüllen des Formulars schicken wir dir das Playbook direkt per Mail oder WhatsApp zu — ohne Umwege.",
+          },
+        },
+      ],
+    },
+  ],
+};
+---
+
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    <meta name="robots" content="index, follow, max-image-preview:large" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="de_DE" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={site + ogImage} />
+    <meta property="og:site_name" content="steine steuern FRIENDS" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <!-- Fonts: Baskervville (Display) + Host Grotesk (Text) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Baskervville:ital@0;1&family=Host+Grotesk:ital,wght@0,300..800;1,300..800&display=swap"
+    />
+
+    <!-- Hero-Bild vorpriorisieren (LCP) -->
+    <link
+      rel="preload"
+      as="image"
+      href="/assets/images/playbook-mockup-768.webp"
+      imagesrcset="/assets/images/playbook-mockup-480.webp 480w, /assets/images/playbook-mockup-768.webp 768w, /assets/images/playbook-mockup-1129.webp 1129w"
+      imagesizes="(min-width: 768px) 45vw, 90vw"
+    />
+
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+
+    <meta name="stand" content={stand} />
+
+    <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+
+    {/*
+      TRACKING — Default des Setups: Matomo + Google-Ads-Conversion + Meta Pixel.
+      KEIN Google Analytics / GA4.
+      Erst nach DSGVO-Consent laden. IDs werden beim Launch eingesetzt
+      (siehe references/playbooks/conversion-tracking.md):
+        - Matomo (Platzhalter)
+        - Meta Pixel (Platzhalter)
+        - Google Ads gtag / Conversion-Tag (Platzhalter)
+    */}
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>

@@ -1,0 +1,49 @@
+---
+// LP-Header: bewusst reduziert — Logo + genau EIN CTA. Keine Navigation
+// (Ablenkung raus, ein Conversion-Ziel). CI: Header auf Brand Green.
+---
+<header class="header">
+  <div class="container header__inner">
+    <a href="#top" class="header__brand" aria-label="steine steuern FRIENDS">
+      <img
+        src="/assets/logo/steine-steuern-logo-white.svg"
+        alt="steine steuern FRIENDS"
+        width="150"
+        height="34"
+        class="header__logo"
+      />
+    </a>
+    <a href="#playbook" class="btn btn--cta header__cta" data-track="cta">
+      Playbook sichern
+    </a>
+  </div>
+</header>
+
+<style>
+  .header {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: var(--color-primary);
+  }
+  .header__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-4);
+    min-height: 64px;
+  }
+  .header__logo {
+    height: 30px;
+    width: auto;
+  }
+  .header__cta {
+    min-height: 44px;
+    padding: var(--space-2) var(--space-6);
+    font-size: var(--text-base);
+  }
+  @media (max-width: 400px) {
+    .header__cta { padding: var(--space-2) var(--space-4); font-size: var(--text-sm); }
+    .header__logo { height: 26px; }
+  }
+</style>

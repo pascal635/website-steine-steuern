@@ -48,3 +48,23 @@ Beobachtung:  Sprechende Dateinamen nach Schema `leistung-ort-kontext.webp` (z.B
 Betrifft:     generate-visuals / Namenskonvention
 Verbesserung: Namensschema als festen Bestandteil ins Playbook aufnehmen, Beispiel mitgeben.
 Status:       offen
+
+---
+
+## 2026-07-03 — Reibung — Umlaute wurden erst transliteriert (ae/oe/ue/ss)
+Beobachtung:  Beim Schreiben der LP-Copy habe ich reflexhaft ä/ö/ü/ß als ae/oe/ue/ss geschrieben ("Immobilienkaeufer", "Liquiditaet"). Auf einer deutschen Kunden-LP wirkt das unprofessionell. Musste per Skript mit kuratierter Wortliste (Wortgrenzen, damit "Prozess"/"Steuer" nicht kaputtgehen) zurückgedreht werden. charset=utf-8 war ohnehin gesetzt.
+Betrifft:     copywriting.md / build-page
+Verbesserung: Copywriting-Playbook + build-page-Gate um explizite Regel ergänzen: "Echte Umlaute (ä/ö/ü/ß) verwenden, nie ae/oe/ue/ss-Transliteration; Dateien als UTF-8." Als Punkt in Abnahme-Gate B (Copy & Voice) aufnehmen.
+Status:       offen
+
+## 2026-07-03 — Reibung — HTML-Kommentar mit verschachtelten <!-- --> bricht auf
+Beobachtung:  Tracking-Platzhalter als HTML-Kommentar mit inneren `<!-- ... -->` gebaut. Das erste innere `-->` schließt den Block, der Rest leckt als sichtbarer Text oben auf der Seite ("====", "--->"). In .astro stattdessen JSX-Kommentar `{/* ... */}` genutzt.
+Betrifft:     build-page / design-system-usage.md
+Verbesserung: Hinweis ins Playbook: in .astro für nicht-gerenderte Notizen `{/* */}` statt `<!-- -->` verwenden; nie HTML-Kommentare verschachteln.
+Status:       offen
+
+## 2026-07-03 — Learning — CI-Manual als strukturiertes HTML ist direkt parsebar
+Beobachtung:  Das gelieferte CI-Manual (assets/ci/*.html) enthielt die Palette + Typo-Rollen als JS-Objekt-Literale (primaryColors/greenScale/neutralColors mit name/hex/role). Ließ sich per grep/python sauber extrahieren und 1:1 auf die design-system-Token-Namen mappen — kein Raten nötig.
+Betrifft:     onboard / design-system.md (Token-Befüllung)
+Verbesserung: onboard-Playbook: wenn CI als HTML/JSON vorliegt, Farb-/Typo-Rollen programmatisch extrahieren statt visuell abschätzen. Rollen-Text ("nur primäre Buttons", "Header/grüne Sektionen") direkt in Token-Kommentare übernehmen.
+Status:       offen

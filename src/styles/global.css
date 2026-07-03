@@ -1,0 +1,191 @@
+@import "tailwindcss";
+
+/*
+  Design-Tokens für steine steuern FRIENDS
+  Gemappt aus dem CI-Manual (assets/ci/) auf die stabilen Token-Namen
+  aus references/design-system.md. Werte ändern sich mit dem CI,
+  die Namen bleiben stabil. Dies ist die kundenspezifische theme.
+*/
+:root {
+  /* --- Marke: Grün-Skala --- */
+  --color-primary:       #1EC677; /* Brand Green 500 — Marken-DNA */
+  --color-primary-hover: #12A45E; /* 600 */
+  --green-50:  #ECF9EE;
+  --green-100: #DDF0E1;
+  --green-200: #A0D3B8;
+  --green-500: #1EC677;
+  --green-600: #12A45E;
+  --green-700: #058B35;
+  --green-800: #045D24;
+  --green-900: #04441B;
+
+  /* --- CTA: Gold (AUSSCHLIESSLICH primäre Buttons) --- */
+  --color-cta:       #F8BF4C;
+  --color-cta-hover: #E9A82F;
+  --color-on-cta:    #0F1B18;
+
+  /* --- Neutrale --- */
+  --color-fg:        #0F1B18; /* Ink — Fliesstext & Headlines auf hell */
+  --color-fg-muted:  #605E5D; /* Ink 600 — Sekundärtext */
+  --color-fg-subtle: #A5A9A5; /* Ink 400 — Eyebrows, Captions */
+  --color-bg:        #F8F8F4; /* Cream / Surface — Standard-Hintergrund */
+  --color-surface:   #FFFFFF; /* Karten, Formulare */
+  --color-border:    #E7E9E4; /* Line — Rahmen, Trennlinien */
+
+  /* --- Dunkle Sektionen (Ink) --- */
+  --color-ink:          #0F1B18;
+  --color-on-ink:       #FFFFFF;
+  --color-on-ink-muted: #A5A9A5;
+
+  /* --- On-Color --- */
+  --color-on-primary: #FFFFFF;
+
+  /* --- Signal --- */
+  --color-danger:    #E23A0E;
+  --color-danger-bg: #F9ECEC;
+  --color-success:   #12A45E;
+
+  /* --- Typografie --- */
+  --font-head: "Baskervville", Georgia, "Times New Roman", serif;
+  --font-sans: "Host Grotesk", system-ui, -apple-system, "Segoe UI", sans-serif;
+
+  --text-xs:   0.75rem;
+  --text-sm:   0.875rem;
+  --text-base: 1rem;
+  --text-lg:   1.25rem;
+  --text-xl:   1.563rem;
+  --text-2xl:  1.953rem;
+  --text-3xl:  2.441rem;
+  --text-4xl:  3.052rem;
+
+  --leading-tight:  1.15;
+  --leading-normal: 1.6;
+  --weight-regular: 400;
+  --weight-medium:  500;
+  --weight-bold:    700;
+
+  /* --- Spacing --- */
+  --space-1:  0.25rem;
+  --space-2:  0.5rem;
+  --space-3:  0.75rem;
+  --space-4:  1rem;
+  --space-6:  1.5rem;
+  --space-8:  2rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
+  --space-24: 6rem;
+  --section-y: var(--space-16);
+  --container: 1120px;
+  --gutter: var(--space-4);
+
+  /* --- Radien & Schatten --- */
+  --radius-sm: 0.25rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 1rem;
+  --radius-full: 9999px;
+  --shadow-sm: 0 1px 2px rgba(15,27,24,0.06);
+  --shadow-md: 0 4px 16px rgba(15,27,24,0.08);
+  --shadow-lg: 0 16px 40px rgba(15,27,24,0.14);
+}
+
+/* --- Reset / Base --- */
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation-duration: 0.001ms !important; transition-duration: 0.001ms !important; }
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-sans);
+  font-size: var(--text-base);
+  line-height: var(--leading-normal);
+  color: var(--color-fg);
+  background: var(--color-bg);
+  font-weight: var(--weight-regular);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+h1, h2, h3 {
+  font-family: var(--font-head);
+  font-weight: var(--weight-regular);
+  line-height: var(--leading-tight);
+  letter-spacing: -0.01em;
+  margin: 0;
+}
+
+p { margin: 0; }
+img, svg, video { max-width: 100%; height: auto; display: block; }
+a { color: inherit; }
+
+:focus-visible {
+  outline: 3px solid var(--color-primary);
+  outline-offset: 2px;
+  border-radius: var(--radius-sm);
+}
+
+/* --- Layout-Helfer --- */
+.container {
+  width: 100%;
+  max-width: var(--container);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+@media (min-width: 768px) {
+  .container { padding-inline: var(--space-8); }
+}
+
+.section {
+  padding-block: var(--section-y);
+}
+@media (min-width: 768px) {
+  .section { padding-block: var(--space-24); }
+}
+
+.eyebrow {
+  font-size: var(--text-sm);
+  font-weight: var(--weight-medium);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-fg-subtle);
+}
+
+/* --- Buttons --- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  min-height: 52px;
+  padding: var(--space-4) var(--space-8);
+  border-radius: var(--radius-md);
+  font-family: var(--font-sans);
+  font-size: var(--text-lg);
+  font-weight: var(--weight-bold);
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.15s ease, transform 0.15s ease;
+  line-height: 1.1;
+  text-align: center;
+}
+.btn:active { transform: translateY(1px); }
+
+/* Primär = Gold (der eine Handlungsimpuls) */
+.btn--cta {
+  background: var(--color-cta);
+  color: var(--color-on-cta);
+  box-shadow: var(--shadow-md);
+}
+.btn--cta:hover { background: var(--color-cta-hover); }
+
+/* Sekundär = Outline (auf dunklem Grund) */
+.btn--ghost {
+  background: transparent;
+  color: var(--color-on-ink);
+  border: 1px solid rgba(255,255,255,0.35);
+  font-weight: var(--weight-medium);
+}
+.btn--ghost:hover { background: rgba(255,255,255,0.08); }

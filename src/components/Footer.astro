@@ -1,0 +1,76 @@
+---
+// LP-Footer: reduziert. Nur Pflicht-Rechtslinks + Disclaimer. Keine Sekundär-Nav,
+// keine Social-Icons (Ablenkung raus).
+const jahr = 2026;
+---
+<footer class="footer">
+  <div class="container footer__inner">
+    <img
+      src="/assets/logo/steine-steuern-logo-white.svg"
+      alt="steine steuern FRIENDS"
+      width="150"
+      height="34"
+      class="footer__logo"
+    />
+
+    <nav class="footer__links" aria-label="Rechtliches">
+      <a href="/datenschutz">Datenschutz</a>
+      <a href="/impressum">Impressum</a>
+      <a href="/agb">AGB</a>
+    </nav>
+
+    <p class="footer__copy">&copy; {jahr} steine steuern FRIENDS</p>
+
+    <p class="footer__disclaimer">
+      <!-- Platzhalter — rechtlich prüfen lassen -->
+      Diese Website ist kein Teil der Facebook-Website oder von Facebook Inc. Außerdem
+      wird diese Website in keiner Weise von Facebook unterstützt. Facebook ist eine
+      Marke von Meta Platforms, Inc. Die hier dargestellten Ergebnisse und
+      Beispielrechnungen sind keine Garantie und keine Steuerberatung. Steuerliche
+      Effekte hängen vom Einzelfall ab; für eine verbindliche Einschätzung wende
+      dich an einen Steuerberater.
+    </p>
+  </div>
+</footer>
+
+<style>
+  .footer {
+    background: var(--color-ink);
+    color: var(--color-on-ink);
+    padding-block: var(--space-12);
+  }
+  .footer__inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: var(--space-4);
+  }
+  .footer__logo { height: 30px; width: auto; opacity: 0.95; }
+  .footer__links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--space-6);
+  }
+  .footer__links a {
+    color: var(--color-on-ink);
+    text-decoration: none;
+    font-size: var(--text-sm);
+    font-weight: var(--weight-medium);
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+  }
+  .footer__links a:hover { color: var(--color-primary); }
+  .footer__copy {
+    font-size: var(--text-sm);
+    color: var(--color-on-ink-muted);
+  }
+  .footer__disclaimer {
+    font-size: var(--text-xs);
+    line-height: 1.6;
+    color: var(--color-on-ink-muted);
+    max-width: 70ch;
+  }
+</style>
