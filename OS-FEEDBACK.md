@@ -68,3 +68,9 @@ Beobachtung:  Das gelieferte CI-Manual (assets/ci/*.html) enthielt die Palette +
 Betrifft:     onboard / design-system.md (Token-Befüllung)
 Verbesserung: onboard-Playbook: wenn CI als HTML/JSON vorliegt, Farb-/Typo-Rollen programmatisch extrahieren statt visuell abschätzen. Rollen-Text ("nur primäre Buttons", "Header/grüne Sektionen") direkt in Token-Kommentare übernehmen.
 Status:       offen
+
+## 2026-07-03 — Reibung — Gemini muss pro Klon neu verbunden werden (Bild-Gen)
+Beobachtung:  Pascal ausdrücklich genervt: Für Bildgenerierung ist Gemini als Default gesetzt (scripts/generate-image.mjs + GEMINI_API_KEY in .env), der Key muss aber pro Projekt/Klon neu eingetragen werden. Higgsfield läuft dagegen als globaler MCP out-of-the-box (hier direkt nutzbar, 1.500+ Credits) und liefert mit Nano Banana (Cover als Bild-Input) exzellente, text-treue Produkt-Mockups.
+Betrifft:     CLAUDE.md (Abschnitt Visuals) / image-generation.md / generate-visuals / onboard
+Verbesserung: Higgsfield-MCP als DEFAULT-Bild-Engine setzen (Stills, Mockups, Video) — Gemini nur noch optionaler Fallback, nicht mehr Standard-Setup-Schritt. Damit entfällt der Gemini-Key-Setup pro Klon. Playbook um "Mockup mit exaktem Cover" ergänzen: reales Cover als Bild-Input hochladen (media_upload → PUT → media_confirm), Nano Banana image-to-image, Prompt "Text exakt erhalten".
+Status:       offen
