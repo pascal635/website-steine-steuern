@@ -1,15 +1,15 @@
 # Apache-Konfig fuer den Hetzner-Webspace (friends.steine-steuern.de).
 # Liegt in public/ -> Astro kopiert es unveraendert nach dist/ -> Web-Root.
 
-# --- HTTPS erzwingen ---
-# ACHTUNG: Erst aktivieren, wenn im Hetzner-Panel ein SSL-Zertifikat
-# (Let's Encrypt) fuer friends.steine-steuern.de ausgestellt ist.
-# Vorher wuerde der Redirect auf ein ungueltiges Zertifikat zeigen.
-# <IfModule mod_rewrite.c>
-#   RewriteEngine On
-#   RewriteCond %{HTTPS} off
-#   RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
-# </IfModule>
+# --- HTTPS ---
+# SSL (Let's Encrypt) ist fuer friends.steine-steuern.de aktiv; der
+# HTTP->HTTPS-Redirect wird bereits vom Hetzner-Webspace erzwungen.
+# Fallback-Redirect (aktiv, falls Hetzner-Auto-Redirect mal ausgeschaltet ist):
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteCond %{HTTPS} off
+  RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+</IfModule>
 
 # Eigene 404-Seite
 ErrorDocument 404 /404.html
@@ -20,8 +20,7 @@ ErrorDocument 404 /404.html
   Header always set X-Frame-Options "SAMEORIGIN"
   Header always set Referrer-Policy "strict-origin-when-cross-origin"
   Header always set Permissions-Policy "geolocation=(), microphone=(), camera=()"
-  # HSTS erst nach SSL-Aktivierung einschalten:
-  # Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains"
+  Header always set Strict-Transport-Security "max-age=31536000"
   Header unset X-Powered-By
 </IfModule>
 
