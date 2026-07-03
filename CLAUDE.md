@@ -25,8 +25,7 @@ Kurz: **[0]** Transcript + Branche (+ alte URL) → **[1]** Deep Research + Ist-
 - `/build-page` — baut EINE Seite aus dem Design-System (Design-System-konform, SEO- und Schema-getaggt).
 - `/generate-visuals` — erzeugt Visuals je Slot: gecodete Infografik, Gemini-Bild, Higgsfield-Video oder angefordertes echtes Foto.
 - `/weekly-review` — wöchentlich. Zieht die Daten, fasst zusammen, schlägt nächste Tasks vor, loggt Entscheidungen.
-- `/promote-to-os` — hebt generische Verbesserungen aus diesem Klon zurück ins Quell-OS und pusht sie.
-- `/update-from-os` — zieht die neueste OS-Ebene (Skills, References, Playbooks, Scripts, Config) aus dem Quell-OS in diesen Klon. Siehe `references/os-sync.md`.
+- `/os-review` — sammelt das Klon-Feedback aus `OS-FEEDBACK.md`, clustert die Verbesserungsvorschläge, Pascal entscheidet, was ins Quell-OS wandert.
 
 ## Knowledge base
 
@@ -46,6 +45,14 @@ Match the register in `references/voice.md` (von `/onboard` gefüllt). Brand Voi
 
 **Visuals:** Stills via Gemini Imagen 4 (`scripts/generate-image.mjs`, `GEMINI_API_KEY` in `.env`). Video/Cinematic/Audio/3D via Higgsfield (MCP, `.mcp.json`). Entscheidungs-Reihenfolge je Slot: Text/Infografik → Standbild → Video. Playbooks: `references/playbooks/image-generation.md`, `references/playbooks/video-generation.md`. Skill: `/generate-visuals`.
 
+## Git-Modell
+
+Dieser Klon ist ein eigenständiges Client-Repo. `origin` = Client-Repo, der Deploy läuft daraus. Direkt auf `main` committen — kein Branch-Zwang bei einem Solo-Client-Repo. Details: `references/git-workflow.md`.
+
+## OS-Verbesserung (KVP)
+
+Verbesserungen am OS laufen über das KVP-Log `OS-FEEDBACK.md` + Review (`references/os-improvement.md`), kein Auto-Sync. Beobachtungen (Reibung + Learnings) werden im Klon geloggt; im Review clustert `/os-review` die Vorschläge, Pascal entscheidet, was ins Quell-OS wandert. Neue Projekte starten mit einem frischen Klon des verbesserten Quell-OS.
+
 ## Connections
 
 {{Filled by /onboard — die Monitore (GSC, Sistrix, Google Ads, Meta Ads, Matomo) + Git + Hosting. Siehe `connections.md` für Mechanismus und Stand.}} Hinweis: Sistrix ist als MCP-Tool in der Umgebung verfügbar.
@@ -58,3 +65,4 @@ Match the register in `references/voice.md` (von `/onboard` gefüllt). Brand Voi
 - Im Review immer: was sagen die Daten → was ist die *eine* wichtigste nächste Maßnahme.
 - Bei jeder Entscheidung: Eintrag in `decisions/log.md` vorschlagen.
 - Default Shift: bei jeder neuen Aufgabe zuerst fragen "in welchem Umfang kann KI das übernehmen?" — bevor wir es von Hand machen.
+- KVP-Mindset: Geh mit offenen Augen durch die Arbeit — jede Qualitäts- oder Prozess-Erkenntnis (nicht nur Fehler) sofort in `OS-FEEDBACK.md` loggen.

@@ -84,8 +84,14 @@ Die Seite wird gegen **alle fünf Dimensionen** geprüft. Jeder Punkt muss sitze
 - [ ] In der Vorschau (Preview-MCP) auf **Desktop + Mobile** sichtgeprüft
 
 ### 7. Commit — Git
-- Geänderte/neue Dateien in einem Branch committen (nicht direkt auf default). Aussagekräftige Message, z. B. `feat(page): Leistungsseite <Leistung> <Ort>`.
+- Geänderte/neue Dateien **direkt auf `main` des Client-Repos** committen (Solo-Client-Repo, kein Branch-Zwang; `origin` = Client-Repo, Deploy läuft daraus). Details in `references/git-workflow.md` und `references/playbooks/deployment.md`.
+- Conventional Commits, aussagekräftige Message, z. B. `feat(page): Leistungsseite <Leistung> <Ort>`.
 - Build-Log / offene Punkte (z. B. angeforderte echte Fotos/Videos) vermerken; strittige Entscheidungen in `decisions/log.md`.
+
+### 8. KVP-Check — nach der Seite (Pflicht)
+- Kurz zurückblicken: Was ist aufgefallen? **Reibung** (was schieflief oder unklar war) oder **Learning** (was besser funktioniert — Handwerks-/Qualitäts-Erkenntnis zu Bild-Benennung, Seitenaufbau, Textführung).
+- Jede Erkenntnis **sofort** in `OS-FEEDBACK.md` eintragen (offene Augen, nicht nur Fehler). Dabei benennen, welches Playbook/welchen Skill es schärft (z. B. `image-generation.md`, `page-structure.md`, `build-page`).
+- Übernahme ins Quell-OS passiert nur später über das KVP-Review mit Pascal — hier nur beobachten und loggen.
 
 ## Output
 

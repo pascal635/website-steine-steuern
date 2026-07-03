@@ -35,6 +35,14 @@ Mehr wird in Phase 0 NICHT verlangt. Keine CI, kein Recht, keine Zugänge.
 
 **Gate Phase 0:** Transcript liegt vor + Branche bekannt → weiter zu Phase 1.
 
+### Schritt 0.3 — Abkürzungs-Pfad prüfen (sanktioniert)
+Liegt bereits reiches Vormaterial vor — ausgefüllter Fragenkatalog, Deep Research, Unternehmensprofil, Sitemap — dann **Phase 2 (`generate-questionnaire`) und Phase 3 überspringen**. Vorgehen:
+1. Vorhandenes Material sichten und **ingestieren** (nicht neu recherchieren, was schon beantwortet ist).
+2. Die **Phase-0/1-Outputs erzeugen** (`branchen-report.md`, ggf. `ist-website-analyse.md`, `gespraechs-insights.md`) aus dem Vormaterial — nur die Lücken selbst schließen.
+3. **Direkt zu `generate-content`** übergeben (Fragebogen entfällt, da bereits beantwortet).
+
+**Idempotenz:** Was das Vormaterial schon liefert, NICHT neu generieren. Übernehmen, was da ist; nur ergänzen, was fehlt.
+
 ## Phase 1 — Selbst-Recherche (OS arbeitet, Kunde wartet)
 
 Drei Arbeitsstränge. Lege fehlende Ordner an. Schreibe konkret und knapp. Wo Daten fehlen: `→ offen: …` notieren statt erfinden. Verbatim-Zitate aus dem Transcript als Voice-/Schmerz-Anker markieren.
@@ -101,4 +109,7 @@ Existieren schon Dateien in `intake/research/` oder `context/gespraechs-insights
 5. Nichts erfinden — Lücken als `→ offen` / offene Frage markieren; verbatim Voice-Anker bewahren.
 6. Insights & Voice der Seite ≠ Profil/Stimme des Betreibers.
 7. Idempotent — Re-Run refresht bei neuen Inputs, Backup nach `archives/onboard-{Datum}/`.
-8. Am Ende an `generate-questionnaire` übergeben — hier endet Phase 1.
+8. Am Ende an `generate-questionnaire` übergeben — hier endet Phase 1. (Ausnahme: sanktionierter Abkürzungs-Pfad aus Schritt 0.3 → direkt an `generate-content`.)
+
+## KVP-Check (am Ende)
+Augen offen: Ist beim Onboarding etwas schiefgelaufen/unklar gewesen (**Reibung**) oder hast du eine Qualitäts-/Prozess-Erkenntnis gewonnen, die das OS besser macht (**Learning**)? Dann sofort in `OS-FEEDBACK.md` loggen (Format siehe Datei). Nichts wandert automatisch ins Quell-OS — Verbesserungen kommen nur über das gemeinsame Review + Freigabe durch Pascal.

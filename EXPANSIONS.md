@@ -1,13 +1,15 @@
 # Expansions
 
-Das Kit ist über den dünnen Start hinaus. Der gestaffelte Onboarding-Flow (`references/onboarding-flow.md`) läuft, dazu Bau, Visuals und OS-Sync. Hier steht, was schon drin ist und welche Ausbaustufen als Nächstes kommen.
+Das Kit ist über den dünnen Start hinaus. Der gestaffelte Onboarding-Flow (`references/onboarding-flow.md`) läuft, dazu Bau, Visuals, Deploy und KVP. Hier steht, was schon drin ist und welche Ausbaustufen als Nächstes kommen.
 
 ## Schon drin (done)
 
 - **Gestaffeltes Onboarding** — `onboard` (Phase 0/1) → `generate-questionnaire` (2) → `generate-content` (4+5) → Bau → `weekly-review` (7).
 - **`build-page`** — eine Seite aus dem Design-System bauen (Copy + Seitentyp → Komponenten-Komposition, SEO-/Schema-getaggt, Commit).
 - **`generate-visuals`** — Visuals je Slot: gecodete Infografik, Gemini-Bild (`scripts/generate-image.mjs`), Higgsfield-Video oder echtes Foto. Playbooks: `image-generation.md`, `video-generation.md`.
-- **OS-Sync** — `promote-to-os` (Klon → Template) und `update-from-os` (Template → Klon). Regeln: `references/os-sync.md`.
+- **KVP (statt Auto-Sync)** — jeder Klon führt `OS-FEEDBACK.md` (Spuren Reibung + Learning). `os-review` clustert die offenen Einträge und legt Pascal eine Entscheidungs-Tabelle vor; Umsetzung nur nach Freigabe. Regeln: `references/os-improvement.md`.
+- **Deploy-Playbook** — Hetzner-Webspace (Apache), GitHub Actions → `npm ci` + `astro build` → FTPS via `lftp`, `public/.htaccess` für Redirects/404/Caching (`references/playbooks/deployment.md`).
+- **Git-Modell** — Klon = eigenständiges Client-Repo, direkt auf `main` committen, kein Upstream-Auto-Sync (`references/git-workflow.md`).
 - **Build-Stack entschieden** — Astro + Tailwind, Default für jeden Klon.
 - **Tracking entschieden** — Matomo + Google-Ads-Conversion + Meta Pixel, kein GA4.
 - **Design-System** — Tokens + Kern-Komponenten als Basis für `build-page` (`references/playbooks/design-system-usage.md`).
@@ -33,4 +35,4 @@ Je Monitor: `references/{tool}-api.md` anlegen (Endpoints, Auth, häufige Querie
 
 - `weekly-review` per Cron/Schedule wöchentlich anstoßen, Ergebnis als Entwurf.
 - Anomalie-Alerts bei KPI-Abweichungen.
-- `update-from-os` regelmäßig laufen lassen, damit Klone nicht von der OS-Ebene abdriften.
+- `os-review` im festen Rhythmus laufen lassen, damit offene `OS-FEEDBACK.md`-Einträge nicht liegen bleiben.

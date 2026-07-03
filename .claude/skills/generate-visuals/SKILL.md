@@ -69,6 +69,10 @@ Zeigt der Slot eine SPEZIFISCHE reale Identität
 - Nach Einbau messen (Lighthouse/PageSpeed): LCP < 2,5 s, kein Asset blockiert den Hauptthread, kein Layout-Shift (feste `width`/`height` bzw. `aspect-ratio`). Video darf den LCP nicht verschlechtern (Poster zählt).
 - Bei Verstoß zurück zu Schritt 5.
 
+### 8. KVP-Check — Learning festhalten
+- Kurz reflektieren: Was ist bei den Visuals aufgefallen, das `references/playbooks/image-generation.md` / `references/playbooks/video-generation.md` schärfen würde (z.B. Bild-Benennung, Prompt-Muster, Format)?
+- Erkenntnis sofort in `OS-FEEDBACK.md` als **Learning** loggen (Format: Beobachtung / Betrifft / Verbesserung / Status). Nicht nur Fehler — jede Qualitäts- oder Prozess-Erkenntnis.
+
 ## Output
 
 Alle Visual-Slots der Seite final befüllt — Infografiken im Code, KI-Bilder als optimierte WebP-Sets, Videos web-tauglich mit Poster und reduced-motion-Fallback, echtes Material angefordert wo nötig. Alt-Texte gesetzt, Lizenzen dokumentiert, Performance geprüft.

@@ -74,3 +74,7 @@ Iterativ, bis der Kunde zufrieden ist. Hier wird nicht gebaut.
 - Playbooks: `page-structure.md` (Sitemap + Sektions-Anatomie), `copywriting.md` (Texte + Voice), `seo-onpage.md` (Keyword/Meta/H-Struktur), `geo.md` (Frage-/Fakten-Blöcke, Entität).
 - Kontext: `context/voice.md` / `references/voice.md`, `context/gespraechs-insights.md`, `intake/research/branchen-report.md`, `intake/research/ist-website-analyse.md`, Fragebogen-Antworten in `intake/`.
 - Daten: Sistrix (MCP) für Keyword-Validierung. Entscheidungen in `decisions/log.md`.
+
+## KVP-Check (am Ende)
+
+Bevor du abschließt: Was ist beim Schreiben von Strategie/Struktur/Texten aufgefallen, das `copywriting.md` / `page-structure.md` / `seo-onpage.md` / `geo.md` schärfen würde? → `OS-FEEDBACK.md` (Learning).

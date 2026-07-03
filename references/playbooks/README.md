@@ -33,3 +33,4 @@ Entscheidungs-Reihenfolge je Slot: Text/Infografik → Standbild → Video. Beid
 
 - `reporting.md` — Kunden im festen Rhythmus mit ergebnisorientiertem, kommentiertem Report versorgen.
 - `performance-a11y.md` — Schnelle Ladezeit auf dem Handy und Bedienbarkeit für alle sicherstellen.
+- `deployment.md` — Astro-Seite via GitHub Actions (`npm ci` + `astro build`) per FTPS auf Hetzner-Webspace (Apache) deployen; `.htaccess` für Redirects/404/Caching.

@@ -30,7 +30,7 @@ Das Onboarding läuft **gestaffelt** in 7 Phasen — Inputs werden erst verlangt
 5. `/build-page` + `/generate-visuals` (Phase 6) — Seiten aus dem Design-System bauen, Visuals erzeugen. Build-Stack: **Astro + Tailwind**. Tracking: **Matomo + Google-Ads-Conversion + Meta Pixel** (kein GA4).
 6. `/weekly-review` (Phase 7) wöchentlich — zieht die verbundenen Daten, fasst zusammen, schlägt priorisierte Tasks vor. Loop bis zum ersten Lead = die erste Fallstudie.
 
-**Sync zwischen Quell-OS und Klonen:** `/update-from-os` zieht die neueste OS-Ebene (Skills, References, Playbooks, Scripts, Config) ins Klon; `/promote-to-os` hebt generische Verbesserungen aus einem Klon zurück ins Template. Regeln: `references/os-sync.md`.
+**Verbesserung des OS (KVP statt Auto-Sync):** Kein automatischer Klon-Sync. Jeder Klon ist ein eigenständiges Client-Repo und führt ein `OS-FEEDBACK.md` — zwei Spuren: **Reibung** (was schieflief/unklar war) und **Learning** (was besser funktioniert, z.B. Bild-Benennung, Seitenaufbau, Textführung). Erkenntnisse sofort loggen, nicht nur Fehler. Verbesserungen wandern nur nach gemeinsamer Analyse und Freigabe durch Pascal ins Quell-OS. Ritual: `/os-review`. Regeln: `references/os-improvement.md`.
 
 ## Wo was liegt
 
@@ -39,6 +39,9 @@ Das Onboarding läuft **gestaffelt** in 7 Phasen — Inputs werden erst verlangt
 - `references/` — Architektur, Design-System-Doku, API-Guides je Monitor.
 - `connections.md` — Registry der Datenquellen + Git + Hosting.
 - `decisions/log.md` — was wann warum an der Seite geändert wurde.
-- `.claude/skills/` — `onboard`, `generate-questionnaire`, `generate-content`, `build-page`, `generate-visuals`, `weekly-review`, `promote-to-os`, `update-from-os` (weitere Ausbaustufen via `EXPANSIONS.md`).
+- `OS-FEEDBACK.md` — KVP-Log dieses Klons (Reibung + Learning), Input für `/os-review`.
+- `.claude/skills/` — `onboard`, `generate-questionnaire`, `generate-content`, `build-page`, `generate-visuals`, `weekly-review`, `os-review` (weitere Ausbaustufen via `EXPANSIONS.md`).
+
+**Deploy:** Hetzner-Webspace (Apache), GitHub Actions → `npm ci` + `astro build` → FTPS-Upload via `lftp`, `public/.htaccess` für 301-Redirects/404/Caching. Ablauf: `references/playbooks/deployment.md`. Git-Modell: `references/git-workflow.md`.
 
 Vollständige Architektur: `references/website-aios-architektur.md`.
