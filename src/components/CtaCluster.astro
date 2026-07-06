@@ -1,0 +1,32 @@
+---
+// Standard-CTA-Block (Doc). Button oeffnet das Popup (LeadModal) — KEIN Scrollen.
+// Erscheint unter jeder Sektion identisch.
+interface Props {
+  tone?: "dark" | "light";
+  align?: "start" | "center";
+}
+const { tone = "light", align = "start" } = Astro.props;
+---
+<div class:list={["cta", `cta--${tone}`, `cta--${align}`]}>
+  <button type="button" class="btn btn--cta" data-open-modal>
+    Jetzt das Steuer-Playbook kostenlos sichern!
+  </button>
+  <p class="cta__micro">Wir schicken dir das Playbook direkt per Mail / WhatsApp zu.</p>
+  <button type="button" class="cta__link" data-open-modal>Weiter zu Schritt 2 &rarr;</button>
+</div>
+
+<style>
+  .cta { display: flex; flex-direction: column; gap: var(--space-3); }
+  .cta--center { align-items: center; text-align: center; }
+  .cta--start { align-items: flex-start; }
+  .cta .btn { width: 100%; max-width: 460px; }
+  .cta__micro { font-size: var(--text-sm); color: var(--color-fg-muted); max-width: 42ch; }
+  .cta__link {
+    background: none; border: none; cursor: pointer; padding: 0;
+    font-family: var(--font-sans); font-size: var(--text-sm); font-weight: var(--weight-medium);
+    color: var(--color-primary-hover); text-decoration: underline; text-underline-offset: 3px;
+  }
+  .cta--center .cta__micro { text-align: center; }
+  .cta--dark .cta__micro { color: var(--color-on-ink-muted); }
+  .cta--dark .cta__link { color: var(--color-primary); }
+</style>

@@ -63,6 +63,12 @@ Betrifft:     build-page / design-system-usage.md
 Verbesserung: Hinweis ins Playbook: in .astro für nicht-gerenderte Notizen `{/* */}` statt `<!-- -->` verwenden; nie HTML-Kommentare verschachteln.
 Status:       offen
 
+## 2026-07-06 — Reibung — Referenz-Template ignoriert + Copy dazugedichtet (Kunde unzufrieden)
+Beobachtung:  Kunde hatte ein Referenz-Template (teachingsocials-scale.de/mm-guide-lp) UND fertige Copy geliefert. Erste Version wich stark ab: (1) Grundlayout nicht übernommen (Template ist konsequent 2-spaltig: Nutzen/Themen links, Mockup+CTA rechts), (2) CTA scrollte zum Formular statt ein POPUP zu öffnen, (3) Copy zwar größtenteils übernommen, aber viel dazugedichtet (FAQ, Trust-Band 70+/20+, GEO-Absatz, umformulierte H1), (4) falsches Mockup (Buch statt Smartphone+Tablet, obwohl Doc "Playbook auf Smartphone + Tablet" sagt).
+Betrifft:     build-page / page-structure.md / copywriting.md / generate-visuals
+Verbesserung: HARTE Regeln ins build-page-Gate: (a) Wenn ein Referenz-Template geliefert wird, zuerst analysieren (Layout, Sektionsreihenfolge, Interaktionen wie Popup) und 1:1 als Grundgerüst übernehmen — nur CI/Inhalt tauschen. (b) Bei gelieferter Copy AUSSCHLIESSLICH diese verwenden, NICHTS erfinden (keine FAQ/Trust/GEO-Zusätze ohne Freigabe). (c) Mockup-Vorgaben aus dem Doc wörtlich nehmen (Gerätetyp). (d) Vor dem Bauen Template + Copy-Quelle gegen die geplante Struktur abgleichen und Abweichungen freigeben lassen.
+Status:       offen
+
 ## 2026-07-03 — Learning — CI-Manual als strukturiertes HTML ist direkt parsebar
 Beobachtung:  Das gelieferte CI-Manual (assets/ci/*.html) enthielt die Palette + Typo-Rollen als JS-Objekt-Literale (primaryColors/greenScale/neutralColors mit name/hex/role). Ließ sich per grep/python sauber extrahieren und 1:1 auf die design-system-Token-Namen mappen — kein Raten nötig.
 Betrifft:     onboard / design-system.md (Token-Befüllung)

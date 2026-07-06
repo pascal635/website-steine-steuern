@@ -2,29 +2,30 @@
 import Base from "../layouts/Base.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
-import CtaBlock from "../components/CtaBlock.astro";
-import LeadForm from "../components/LeadForm.astro";
+import CtaCluster from "../components/CtaCluster.astro";
+import LeadModal from "../components/LeadModal.astro";
 import Icon from "../components/Icon.astro";
 
 const title = "Steuer-Playbook Immobilien: bis zu 30.000 € mehr Liquidität";
 const description =
   "Kostenloses Steuer-Playbook für Immobilienbesitzer: Abschreibung optimieren, Steuerlast senken, mehr Liquidität. Jetzt gratis per Mail/WhatsApp sichern.";
 
+// Copy strikt aus dem gelieferten Doc (Jasper — Leadmagnet + LP).
 const nutzen = [
   {
     icon: "tax-down",
     h: "Senke deine Steuerlast schon mit der nächsten Steuererklärung",
-    t: "Du bekommst konkrete Rechnungen, Vorlagen und Schritte, die du sofort anwenden kannst. Von der richtigen Kaufpreisaufteilung bis zur verkürzten Restnutzungsdauer. Kein Steuer-Studium nötig, nur ein nachvollziehbares System.",
+    t: "Du bekommst konkrete Rechnungen, Vorlagen und Schritte, die du sofort anwenden kannst — von der richtigen Kaufpreisaufteilung bis zur verkürzten Restnutzungsdauer. Kein Steuer-Studium nötig, nur ein nachvollziehbares System.",
   },
   {
     icon: "chart-up",
     h: "Verschenke keine Abschreibung mehr durch falsche Aufteilung",
-    t: "Die meisten zahlen nicht zu viel Steuern, weil sie etwas falsch machen. Sondern weil sie die Abschreibung nie optimiert haben. Ein zu niedriger Gebäudeanteil und pauschale 2 % AfA kosten dich Jahr für Jahr tausende Euro. Dieses Playbook zeigt dir, wie du das drehst.",
+    t: "Die meisten zahlen nicht zu viel Steuern, weil sie etwas falsch machen — sondern weil sie die Abschreibung nie optimiert haben. Ein zu niedriger Gebäudeanteil und pauschale 2 % AfA kosten dich Jahr für Jahr tausende Euro. Dieses Playbook zeigt dir, wie du das drehst.",
   },
   {
     icon: "shield-check",
     h: "Nutze erprobte, finanzamtsfeste Verfahren",
-    t: "Jeder richtig genutzte Hebel erhöht deine Liquidität. Und jeder Euro mehr Abschreibung senkt deine Steuer. Schon eine korrekte Restnutzungsdauer kann deine jährliche Abschreibung verdoppeln: 4 % statt 2 % sind 100 % mehr.",
+    t: "Jeder richtig genutzte Hebel erhöht deine Liquidität — und jeder Euro mehr Abschreibung senkt deine Steuer. Schon eine korrekte Restnutzungsdauer kann deine jährliche Abschreibung verdoppeln (4 % statt 2 % = 100 % mehr).",
   },
 ];
 
@@ -32,185 +33,124 @@ const themen = [
   {
     icon: "alert",
     h: "Warum fast jeder Immobilienbesitzer zu viel Steuern zahlt",
-    t: "Die meisten kennen die drei größten Fehler nicht: eine fehlende oder defensive Kaufpreisaufteilung, eine nie geprüfte Restnutzungsdauer und Modernisierungen zum falschen Zeitpunkt. Du erfährst, warum das passiert und was es dich konkret kostet.",
+    t: "Die meisten kennen die drei größten Fehler nicht: eine fehlende oder defensive Kaufpreisaufteilung, eine nie geprüfte Restnutzungsdauer und Modernisierungen zum falschen Zeitpunkt. Du erfährst, warum das passiert — und was es dich konkret kostet.",
   },
   {
     icon: "sliders",
     h: "Die drei Hebel: Kaufpreisaufteilung, Restnutzungsdauer & 15-%-Grenze",
-    t: "Lerne, wie du den Gebäudeanteil maximierst, deine Abschreibung von 2 % auf 4 % hebst und die gefährliche 15-%-Grenze in den ersten drei Jahren sauber umschiffst. Inklusive Beispielrechnungen mit echten Zahlen.",
+    t: "Lerne, wie du den Gebäudeanteil maximierst, deine Abschreibung von 2 % auf 4 % hebst und die gefährliche 15-%-Grenze in den ersten drei Jahren sauber umschiffst — inklusive Beispielrechnungen mit echten Zahlen.",
   },
   {
     icon: "steps",
     h: "Der finanzamtsfeste Schritt-für-Schritt-Prozess",
-    t: "Du bekommst einen klaren Ablauf für Neukauf und Bestand. Von der Objektauswahl über den Notartermin bis zum eingereichten Gutachten. So setzt du die Abschreibung systematisch um, statt zu raten.",
+    t: "Du bekommst einen klaren Ablauf für Neukauf und Bestand — von der Objektauswahl über den Notartermin bis zum eingereichten Gutachten. So setzt du die Abschreibung systematisch um, statt zu raten.",
   },
 ];
 
-const faq = [
-  {
-    q: "Was kostet das Steuer-Playbook?",
-    a: "Das Playbook ist komplett kostenlos. Du trägst dich ein und bekommst es direkt per Mail oder WhatsApp zugeschickt.",
-  },
-  {
-    q: "Ist das Playbook eine Steuerberatung?",
-    a: "Nein. Das Playbook ist ein Informationsleitfaden und keine Steuerberatung. Steuerliche Effekte hängen vom Einzelfall ab. Für eine verbindliche Einschätzung wende dich an einen Steuerberater.",
-  },
-  {
-    q: "Für wen ist das Playbook geeignet?",
-    a: "Für Immobilienkäufer, Eigentümer, Vermieter und Investoren, die ihre Immobilien steuerlich richtig nutzen wollen. Beim nächsten Kauf oder im bestehenden Bestand. Nicht geeignet für aggressive Modelle oder Grauzonen.",
-  },
-  {
-    q: "Wie bekomme ich das Playbook nach der Anmeldung?",
-    a: "Nach dem Ausfüllen des Formulars schicken wir dir das Playbook direkt per Mail oder WhatsApp zu. Ohne Umwege.",
-  },
-];
+const subline =
+  "Immobilienkäufer, Eigentümer & Vermieter senken mit diesem Playbook ihre Steuerlast und gewinnen mehr Liquidität — ohne GmbH, ohne Ausland und ohne Veränderung an ihren bestehenden Objekten.";
 ---
 
 <Base title={title} description={description}>
   <Header />
   <main id="top">
 
-    <!-- ============ SEKTION 1 — HERO ============ -->
+    <!-- ============ HERO ============ -->
     <section class="hero">
       <div class="container hero__grid">
-        <div class="hero__copy">
+        <div class="hero__intro">
           <span class="badge">Kostenloses Playbook von steine steuern FRIENDS</span>
           <h1 class="hero__h1">
-            Bis zu <span class="accent">30.000 €</span> mehr Liquidität aus deinen Immobilien.
-            <em>Im ersten Jahr, legal, über die richtige Abschreibung.</em>
+            Nachdem du dieses Playbook gelesen hast, holst du dir im ersten Jahr
+            <span class="hl">bis zu 30.000 € mehr Liquidität</span> aus deinen Immobilien.
+            <em>Legal, über die richtige Abschreibung.</em>
           </h1>
-          <p class="hero__sub">
-            Immobilienkäufer, Eigentümer und Vermieter senken mit diesem Playbook ihre
-            Steuerlast und gewinnen mehr Liquidität. Ohne GmbH, ohne Ausland und ohne
-            Veränderung an ihren bestehenden Objekten.
-          </p>
-          <CtaBlock tone="dark" />
+          <p class="hero__sub">{subline}</p>
         </div>
-        <div class="hero__media">
+
+        <aside class="hero__aside">
           <img
-            src="/assets/images/playbook-mockup-768.webp"
-            srcset="/assets/images/playbook-mockup-480.webp 480w, /assets/images/playbook-mockup-768.webp 768w, /assets/images/playbook-mockup-1129.webp 1129w"
-            sizes="(min-width: 768px) 45vw, 90vw"
-            width="1129"
-            height="757"
-            alt="Das Steuer-Playbook 'Steuern sparen mit Abschreibung' von steine steuern FRIENDS, in beiden Händen gehalten"
+            src="/assets/images/playbook-devices-768.webp"
+            srcset="/assets/images/playbook-devices-480.webp 480w, /assets/images/playbook-devices-768.webp 768w, /assets/images/playbook-devices-1200.webp 1200w"
+            sizes="(min-width: 900px) 42vw, 88vw"
+            width="1200"
+            height="1034"
+            alt="Das Steuer-Playbook 'Steuern sparen mit Abschreibung' auf Tablet und Smartphone"
             fetchpriority="high"
             decoding="async"
           />
-        </div>
-      </div>
-    </section>
+          <CtaCluster tone="dark" align="center" />
+        </aside>
 
-    <!-- ============ SEKTION 2 — NUTZEN ============ -->
-    <section class="section section--cream">
-      <div class="container">
-        <p class="lead">
-          Das Steuer-Playbook von steine steuern FRIENDS ist ein kostenloser Leitfaden für
-          Immobilienbesitzer. Es zeigt Schritt für Schritt, wie du über Kaufpreisaufteilung,
-          verkürzte Restnutzungsdauer und die richtige AfA deine jährliche Abschreibung
-          erhöhst, deine Steuerlast senkst und mehr Liquidität aus deinen Immobilien holst.
-          Legal und finanzamtsfest.
-        </p>
-
-        <div class="cards cards--3">
+        <div class="hero__nutzen">
           {nutzen.map((n) => (
-            <article class="card">
-              <span class="card__icon"><Icon name={n.icon} /></span>
-              <h2 class="card__h">{n.h}</h2>
-              <p class="card__t">{n.t}</p>
+            <article class="feat">
+              <span class="feat__icon"><Icon name={n.icon} /></span>
+              <div>
+                <h2 class="feat__h">{n.h}</h2>
+                <p class="feat__t">{n.t}</p>
+              </div>
             </article>
           ))}
         </div>
-
-        <CtaBlock align="center" />
       </div>
     </section>
 
-    <!-- ============ Trust-Band (Social Proof) ============ -->
-    <section class="band">
-      <div class="container band__grid">
-        <div class="band__item">
-          <span class="band__num">70+</span>
-          <span class="band__label">Einheiten selbst gekauft</span>
-        </div>
-        <div class="band__item">
-          <span class="band__num">20+</span>
-          <span class="band__label">Immobilien gehandelt</span>
-        </div>
-        <div class="band__item">
-          <span class="band__num">100 %</span>
-          <span class="band__label">Geld-zurück-Garantie auf Gutachten</span>
-        </div>
-      </div>
-    </section>
-
-    <!-- ============ SEKTION 3 — FUER WEN ============ -->
-    <section class="section section--white">
-      <div class="container narrow">
-        <h2 class="section__h">Für wen ist dieses Playbook geeignet?</h2>
-        <p class="prose">
-          Dieses Playbook richtet sich an Immobilienkäufer, Eigentümer, Vermieter und
-          Investoren, die ihre Immobilien steuerlich endlich richtig nutzen wollen. Egal ob
-          beim nächsten Kauf oder im bestehenden Bestand.
-        </p>
-        <p class="prose">
-          Besonders geeignet ist es für alle, die bereits eine oder mehrere Immobilien
-          besitzen oder kaufen wollen, aber das Gefühl haben, dass sie steuerlich Geld auf
-          dem Tisch liegen lassen.
-        </p>
-
-        <div class="exclude">
-          <p class="exclude__title">Nicht geeignet für:</p>
-          <p class="exclude__text">
-            Leute, die aggressive Modelle oder Grauzonen suchen. Hier geht es um saubere,
-            legale Optimierung.
+    <!-- ============ FÜR WEN ============ -->
+    <section class="section section--light">
+      <div class="container">
+        <div class="card-dark">
+          <h2 class="card-dark__h">Für wen ist dieses Playbook geeignet?</h2>
+          <p class="card-dark__t">
+            Dieses Playbook richtet sich an Immobilienkäufer, Eigentümer, Vermieter und Investoren,
+            die ihre Immobilien steuerlich endlich richtig nutzen wollen — egal ob beim nächsten Kauf
+            oder im bestehenden Bestand.
           </p>
+          <p class="card-dark__t">
+            Besonders geeignet ist es für alle, die bereits eine oder mehrere Immobilien besitzen oder
+            kaufen wollen, aber das Gefühl haben, dass sie steuerlich Geld auf dem Tisch liegen lassen.
+            <strong>Nicht geeignet</strong> für Leute, die aggressive Modelle oder Grauzonen suchen —
+            hier geht es um saubere, legale Optimierung.
+          </p>
+          <div class="card-dark__cta"><CtaCluster tone="dark" align="center" /></div>
         </div>
-
-        <CtaBlock />
       </div>
     </section>
 
-    <!-- ============ SEKTION 4 — THEMEN ============ -->
+    <!-- ============ THEMEN ============ -->
     <section class="section section--cream">
       <div class="container">
-        <div class="themen__intro">
-          <div class="themen__intro-copy">
-            <h2 class="section__h">Themen des Steuer-Playbooks</h2>
-            <p class="prose">
-              Drei Hebel, ein finanzamtsfester Prozess und die häufigsten Fehler, die dich
-              bares Geld kosten. Konkret, mit Beispielrechnungen, sofort anwendbar.
-            </p>
-            <CtaBlock />
+        <h2 class="section__h center">Themen des Steuer-Playbooks:</h2>
+        <div class="split">
+          <div class="split__list">
+            {themen.map((t) => (
+              <article class="feat">
+                <span class="feat__icon"><Icon name={t.icon} /></span>
+                <div>
+                  <h3 class="feat__h">{t.h}</h3>
+                  <p class="feat__t">{t.t}</p>
+                </div>
+              </article>
+            ))}
           </div>
-          <div class="themen__intro-media">
+          <aside class="split__aside">
             <img
-              src="/assets/images/playbook-desk-768.webp"
-              srcset="/assets/images/playbook-desk-768.webp 768w, /assets/images/playbook-desk-1129.webp 1129w"
-              sizes="(min-width: 768px) 45vw, 90vw"
-              width="1129"
-              height="757"
-              alt="Das Steuer-Playbook von steine steuern FRIENDS auf einem Schreibtisch"
+              src="/assets/images/playbook-devices-768.webp"
+              srcset="/assets/images/playbook-devices-480.webp 480w, /assets/images/playbook-devices-768.webp 768w, /assets/images/playbook-devices-1200.webp 1200w"
+              sizes="(min-width: 900px) 42vw, 88vw"
+              width="1200"
+              height="1034"
+              alt="Steuer-Playbook auf Tablet und Smartphone"
               loading="lazy"
               decoding="async"
             />
-          </div>
-        </div>
-
-        <div class="cards cards--3 themen__cards">
-          {themen.map((t, i) => (
-            <article class="card">
-              <span class="card__num">{i + 1}</span>
-              <span class="card__icon"><Icon name={t.icon} /></span>
-              <h3 class="card__h">{t.h}</h3>
-              <p class="card__t">{t.t}</p>
-            </article>
-          ))}
+            <CtaCluster align="center" />
+          </aside>
         </div>
       </div>
     </section>
 
-    <!-- ============ SEKTION 5 — GRUENDER ============ -->
+    <!-- ============ GRÜNDER ============ -->
     <section class="section founder">
       <div class="container founder__grid">
         <div class="founder__media">
@@ -224,307 +164,137 @@ const faq = [
           />
         </div>
         <div class="founder__copy">
-          <p class="eyebrow eyebrow--dark">Der Gründer</p>
-          <h2 class="founder__h">
-            Jasper. Immobilieninvestor & Gründer von <span class="accent">gutachten-nutzungsdauer.com</span>
-          </h2>
+          <h2 class="founder__h">Jasper — Immobilieninvestor & Gründer von <span class="accent">gutachten-nutzungsdauer.com</span></h2>
           <p class="founder__t">
-            Jasper ist Immobilieninvestor mit Fokus auf Fix & Hold. Ueber 70 Einheiten gekauft,
-            über 20 gehandelt. Am Anfang hat er selbst große Fehler gemacht. Die
-            Kaufpreisaufteilung dem Steuerberater überlassen, die Restnutzungsdauer nie
-            geprüft. Und dadurch jedes Jahr tausende Euro verschenkt.
+            Jasper ist Immobilieninvestor mit Fokus auf Fix & Hold. Über 70 Einheiten gekauft, über 20
+            gehandelt. Am Anfang hat er selbst große Fehler gemacht — die Kaufpreisaufteilung dem
+            Steuerberater überlassen, die Restnutzungsdauer nie geprüft — und dadurch jedes Jahr
+            tausende Euro verschenkt.
           </p>
           <p class="founder__t">
-            Heute weiß er: Die größten Steuervorteile liegen in der richtigen Nutzung der
-            Abschreibung. Weil er am Markt keine Gutachter fand, die seinen Ansprüchen an
-            Sicherheit und Geschwindigkeit genügten, hat er mit gutachten-nutzungsdauer.com
-            seine eigene Lösung gebaut. Ein Team aus zertifizierten Experten mit nur einem
-            Ziel: finanzamtsfeste Gutachten für Investoren.
+            Heute weiß er: Die größten Steuervorteile liegen in der richtigen Nutzung der Abschreibung.
+            Weil er am Markt keine Gutachter fand, die seinen Anforderungen an Sicherheit und
+            Geschwindigkeit genügten, hat er mit gutachten-nutzungsdauer.com seine eigene Lösung gebaut
+            — ein Team aus zertifizierten Experten (DIN ISO IEC 17024 & DAkkS-akkreditiert), das nur ein
+            Ziel hat: finanzamtsfeste Gutachten für Investoren.
           </p>
           <p class="founder__t">
-            Dieses Playbook ist exakt der Prozess, durch den seine eigenen Investments laufen.
-            Inklusive Geld-zurück-Garantie: Wird keine Steuerersparnis herausgeholt, kostet es
-            nichts.
+            Dieses Playbook ist exakt der Prozess, durch den seine eigenen Investments laufen —
+            inklusive Geld-zurück-Garantie: Wird keine Steuerersparnis herausgeholt, kostet es nichts.
           </p>
-
-          <ul class="badges" aria-label="Zertifizierungen und Garantie">
+          <ul class="badges" aria-label="Zertifizierungen">
             <li>DIN ISO IEC 17024</li>
             <li>DAkkS-akkreditiert</li>
             <li>Geld-zurück-Garantie</li>
           </ul>
-
-          <CtaBlock tone="dark" />
+          <CtaCluster tone="dark" />
         </div>
       </div>
     </section>
 
-    <!-- ============ FAQ (GEO + Einwände) ============ -->
-    <section class="section section--cream">
-      <div class="container narrow">
-        <h2 class="section__h">Häufige Fragen</h2>
-        <div class="faq">
-          {faq.map((f) => (
-            <details class="faq__item">
-              <summary class="faq__q">{f.q}</summary>
-              <p class="faq__a">{f.a}</p>
-            </details>
-          ))}
-        </div>
-      </div>
-    </section>
-
-    <!-- ============ SEKTION 6 — ABSCHLUSS + FORMULAR ============ -->
+    <!-- ============ ABSCHLUSS ============ -->
     <section class="section closer">
-      <div class="container closer__grid">
-        <div class="closer__copy">
-          <span class="badge badge--light">Kostenloses Playbook von steine steuern FRIENDS</span>
-          <h2 class="closer__h">
-            Jetzt im ersten Jahr bis zu <span class="accent-ink">30.000 €</span> mehr Liquidität
-            aus deinen Immobilien holen
-          </h2>
-          <p class="closer__sub">
-            Immobilienkäufer, Eigentümer und Vermieter senken mit diesem Playbook ihre
-            Steuerlast und gewinnen mehr Liquidität. Ohne GmbH, ohne Ausland und ohne
-            Veränderung an ihren bestehenden Objekten.
-          </p>
-          <p class="closer__bonus">
-            <strong>Gratis dazu:</strong> das exklusive Video zum eBook.
-          </p>
-        </div>
-        <LeadForm />
+      <div class="container closer__inner">
+        <span class="badge">Kostenloses Playbook von steine steuern FRIENDS</span>
+        <h2 class="closer__h">
+          Jetzt im ersten Jahr <span class="hl">bis zu 30.000 € mehr Liquidität</span> aus deinen
+          Immobilien holen:
+        </h2>
+        <p class="closer__sub">{subline}</p>
+        <img
+          class="closer__img"
+          src="/assets/images/playbook-devices-768.webp"
+          srcset="/assets/images/playbook-devices-480.webp 480w, /assets/images/playbook-devices-768.webp 768w, /assets/images/playbook-devices-1200.webp 1200w"
+          sizes="(min-width: 768px) 560px, 88vw"
+          width="1200"
+          height="1034"
+          alt="Steuer-Playbook auf Tablet und Smartphone"
+          loading="lazy"
+          decoding="async"
+        />
+        <CtaCluster tone="dark" align="center" />
       </div>
     </section>
 
   </main>
   <Footer />
+  <LeadModal />
 </Base>
 
 <style>
-  /* ---------- Sektions-Hintergründe ---------- */
   .section--cream { background: var(--color-bg); }
-  .section--white { background: var(--color-surface); }
+  .section--light { background: var(--color-surface); }
+  .section__h { font-size: var(--text-2xl); }
+  @media (min-width: 768px) { .section__h { font-size: var(--text-3xl); } }
+  .center { text-align: center; }
 
-  .narrow { max-width: 760px; }
-
-  .section__h {
-    font-size: var(--text-2xl);
-    margin-bottom: var(--space-6);
-  }
-  @media (min-width: 768px) {
-    .section__h { font-size: var(--text-3xl); }
-  }
-  .prose {
-    font-size: var(--text-lg);
-    color: var(--color-fg-muted);
-    margin-bottom: var(--space-4);
-    max-width: 65ch;
-  }
-
-  .accent { color: var(--color-primary); font-style: normal; }
-  .accent-ink { color: var(--color-ink); font-style: normal; }
-
-  /* ---------- Badge ---------- */
   .badge {
-    display: inline-block;
-    font-size: var(--text-sm);
-    font-weight: var(--weight-medium);
-    padding: var(--space-2) var(--space-4);
-    border-radius: var(--radius-full);
-    background: rgba(30,198,119,0.14);
-    color: var(--color-primary);
-    border: 1px solid rgba(30,198,119,0.3);
+    display: inline-block; font-size: var(--text-sm); font-weight: var(--weight-medium);
+    padding: var(--space-2) var(--space-4); border-radius: var(--radius-full);
+    background: rgba(30,198,119,0.14); color: var(--color-primary); border: 1px solid rgba(30,198,119,0.3);
   }
-  .badge--light {
-    background: rgba(15,27,24,0.08);
-    color: var(--color-ink);
-    border-color: rgba(15,27,24,0.15);
-  }
+  .hl { color: var(--color-primary); text-decoration: underline; text-decoration-thickness: 2px; text-underline-offset: 4px; }
+  .accent { color: var(--color-primary); font-style: normal; }
+
+  /* ---------- Feature-/Themen-Block (Icon links, Text rechts) ---------- */
+  .feat { display: grid; grid-template-columns: auto 1fr; gap: var(--space-4); padding-block: var(--space-6); border-top: 1px solid var(--color-border); }
+  .feat__icon { display: inline-grid; place-items: center; width: 44px; height: 44px; border-radius: var(--radius-md); background: var(--green-50); color: var(--color-primary-hover); }
+  .feat__h { font-size: var(--text-lg); margin-bottom: var(--space-2); }
+  .feat__t { color: var(--color-fg-muted); font-size: var(--text-base); }
 
   /* ---------- HERO ---------- */
-  .hero {
-    background: var(--color-ink);
-    color: var(--color-on-ink);
-    padding-block: var(--space-16);
+  .hero { background: var(--color-ink); color: var(--color-on-ink); padding-block: var(--space-12) var(--space-16); }
+  @media (min-width: 900px) { .hero { padding-block: var(--space-16) var(--space-24); } }
+  .hero__grid { display: grid; grid-template-columns: 1fr; gap: var(--space-8); grid-template-areas: "intro" "aside" "nutzen"; }
+  @media (min-width: 900px) {
+    .hero__grid { grid-template-columns: 1.05fr 0.95fr; column-gap: var(--space-16); grid-template-areas: "intro aside" "nutzen aside"; align-items: start; }
   }
-  @media (min-width: 768px) {
-    .hero { padding-block: var(--space-24); }
-  }
-  .hero__grid { display: grid; gap: var(--space-12); align-items: center; }
-  @media (min-width: 768px) {
-    .hero__grid { grid-template-columns: 1.05fr 0.95fr; gap: var(--space-16); }
-  }
-  .hero__h1 {
-    font-size: clamp(2.1rem, 6vw, var(--text-4xl));
-    margin-block: var(--space-6) var(--space-4);
-    color: var(--color-on-ink);
-  }
-  .hero__h1 em { display: block; font-size: 0.62em; color: var(--color-on-ink-muted); margin-top: var(--space-3); }
-  .hero__sub {
-    font-size: var(--text-lg);
-    color: var(--color-on-ink-muted);
-    max-width: 54ch;
-  }
-  .hero__media img {
-    border-radius: var(--radius-lg);
-    box-shadow: var(--shadow-lg);
-    width: 100%;
-  }
+  .hero__intro { grid-area: intro; }
+  .hero__aside { grid-area: aside; display: flex; flex-direction: column; gap: var(--space-6); }
+  @media (min-width: 900px) { .hero__aside { position: sticky; top: 88px; } }
+  .hero__nutzen { grid-area: nutzen; }
+  .hero__h1 { font-size: clamp(1.9rem, 4.5vw, var(--text-4xl)); margin-block: var(--space-6) var(--space-4); color: var(--color-on-ink); }
+  .hero__h1 em { display: block; font-size: 0.6em; color: var(--color-on-ink-muted); margin-top: var(--space-2); }
+  .hero__sub { font-size: var(--text-lg); color: var(--color-on-ink-muted); max-width: 56ch; }
+  .hero__aside img { width: 100%; }
+  .hero .feat { border-top-color: rgba(255,255,255,0.14); }
+  .hero .feat__icon { background: rgba(30,198,119,0.16); color: var(--color-primary); }
+  .hero .feat__t { color: var(--color-on-ink-muted); }
+  .hero .feat__h { color: var(--color-on-ink); }
 
-  /* ---------- Karten ---------- */
-  .lead {
-    font-size: var(--text-lg);
-    line-height: 1.7;
-    color: var(--color-fg);
-    max-width: 70ch;
-    margin: 0 auto var(--space-12);
-    text-align: center;
-  }
-  .cards { display: grid; gap: var(--space-6); }
-  @media (min-width: 768px) {
-    .cards--3 { grid-template-columns: repeat(3, 1fr); }
-  }
-  .card {
-    background: var(--color-surface);
-    border: 1px solid var(--color-border);
-    border-radius: var(--radius-lg);
-    padding: var(--space-8);
-    position: relative;
-  }
-  .card__icon {
-    display: inline-grid;
-    place-items: center;
-    width: 52px;
-    height: 52px;
-    border-radius: var(--radius-md);
-    background: var(--green-50);
-    color: var(--color-primary-hover);
-    margin-bottom: var(--space-4);
-  }
-  .card__num {
-    position: absolute;
-    top: var(--space-6);
-    right: var(--space-8);
-    font-family: var(--font-head);
-    font-size: var(--text-2xl);
-    color: var(--color-border);
-    line-height: 1;
-  }
-  .card__h { font-size: var(--text-xl); margin-bottom: var(--space-3); }
-  .card__t { color: var(--color-fg-muted); }
+  /* ---------- Dunkle Card (Für wen) ---------- */
+  .card-dark { background: var(--color-ink); color: var(--color-on-ink); border-radius: var(--radius-lg); padding: var(--space-12) var(--space-8); text-align: center; }
+  @media (min-width: 768px) { .card-dark { padding: var(--space-16); } }
+  .card-dark__h { font-size: var(--text-2xl); margin-bottom: var(--space-6); color: var(--color-on-ink); }
+  @media (min-width: 768px) { .card-dark__h { font-size: var(--text-3xl); } }
+  .card-dark__t { color: var(--color-on-ink-muted); max-width: 68ch; margin: 0 auto var(--space-4); }
+  .card-dark__t strong { color: var(--color-on-ink); }
+  .card-dark__cta { margin-top: var(--space-8); display: flex; justify-content: center; }
 
-  /* ---------- Trust-Band ---------- */
-  .band {
-    background: var(--green-900);
-    color: var(--color-on-ink);
-    padding-block: var(--space-12);
-  }
-  .band__grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: var(--space-6);
-    text-align: center;
-  }
-  .band__item { display: flex; flex-direction: column; gap: var(--space-2); }
-  .band__num {
-    font-family: var(--font-head);
-    font-size: clamp(2rem, 7vw, var(--text-4xl));
-    color: var(--color-primary);
-    line-height: 1;
-  }
-  .band__label { font-size: var(--text-sm); color: rgba(255,255,255,0.75); }
-
-  /* ---------- Ausschluss-Box ---------- */
-  .exclude {
-    background: var(--color-danger-bg);
-    border: 1px solid rgba(226,58,14,0.25);
-    border-radius: var(--radius-md);
-    padding: var(--space-6);
-    margin-block: var(--space-8);
-  }
-  .exclude__title { font-weight: var(--weight-bold); color: var(--color-danger); margin-bottom: var(--space-2); }
-  .exclude__text { color: var(--color-fg); }
-
-  /* ---------- Themen ---------- */
-  .themen__intro { display: grid; gap: var(--space-12); align-items: center; margin-bottom: var(--space-16); }
-  @media (min-width: 768px) {
-    .themen__intro { grid-template-columns: 1fr 1fr; gap: var(--space-16); }
-  }
-  .themen__intro-media img { border-radius: var(--radius-lg); box-shadow: var(--shadow-md); }
+  /* ---------- Split (Themen) ---------- */
+  .split { display: grid; grid-template-columns: 1fr; gap: var(--space-12); margin-top: var(--space-8); }
+  @media (min-width: 900px) { .split { grid-template-columns: 1.05fr 0.95fr; column-gap: var(--space-16); align-items: start; } }
+  .split__aside { display: flex; flex-direction: column; gap: var(--space-6); }
+  @media (min-width: 900px) { .split__aside { position: sticky; top: 88px; } }
+  .split__aside img { width: 100%; }
 
   /* ---------- Gründer ---------- */
   .founder { background: var(--color-ink); color: var(--color-on-ink); }
-  .founder__grid { display: grid; gap: var(--space-12); align-items: start; }
-  @media (min-width: 900px) {
-    .founder__grid { grid-template-columns: 0.8fr 1.2fr; gap: var(--space-16); }
-  }
-  .founder__media img {
-    border-radius: var(--radius-lg);
-    box-shadow: var(--shadow-lg);
-    width: 100%;
-  }
-  @media (min-width: 900px) {
-    .founder__media { position: sticky; top: 88px; }
-  }
-  .eyebrow--dark { color: var(--color-primary); }
-  .founder__h {
-    font-size: var(--text-2xl);
-    margin-block: var(--space-3) var(--space-6);
-    color: var(--color-on-ink);
-  }
+  .founder__grid { display: grid; grid-template-columns: 1fr; gap: var(--space-12); align-items: start; }
+  @media (min-width: 900px) { .founder__grid { grid-template-columns: 0.8fr 1.2fr; column-gap: var(--space-16); } }
+  .founder__media img { width: 100%; border-radius: var(--radius-lg); box-shadow: var(--shadow-lg); }
+  @media (min-width: 900px) { .founder__media { position: sticky; top: 88px; } }
+  .founder__h { font-size: var(--text-2xl); margin-bottom: var(--space-6); color: var(--color-on-ink); }
   @media (min-width: 768px) { .founder__h { font-size: var(--text-3xl); } }
-  .founder__t { color: rgba(255,255,255,0.82); margin-bottom: var(--space-4); max-width: 62ch; }
-  .badges {
-    list-style: none;
-    display: flex;
-    flex-wrap: wrap;
-    gap: var(--space-3);
-    padding: 0;
-    margin-block: var(--space-6);
-  }
-  .badges li {
-    font-size: var(--text-sm);
-    font-weight: var(--weight-medium);
-    padding: var(--space-2) var(--space-4);
-    border-radius: var(--radius-full);
-    border: 1px solid rgba(255,255,255,0.25);
-    color: var(--color-on-ink);
-  }
+  .founder__t { color: rgba(255,255,255,0.82); margin-bottom: var(--space-4); max-width: 64ch; }
+  .badges { list-style: none; display: flex; flex-wrap: wrap; gap: var(--space-3); padding: 0; margin-block: var(--space-6); }
+  .badges li { font-size: var(--text-sm); font-weight: var(--weight-medium); padding: var(--space-2) var(--space-4); border-radius: var(--radius-full); border: 1px solid rgba(255,255,255,0.25); }
 
-  /* ---------- FAQ ---------- */
-  .faq { display: flex; flex-direction: column; gap: var(--space-3); }
-  .faq__item {
-    background: var(--color-surface);
-    border: 1px solid var(--color-border);
-    border-radius: var(--radius-md);
-    padding: var(--space-4) var(--space-6);
-  }
-  .faq__q {
-    font-family: var(--font-head);
-    font-size: var(--text-lg);
-    cursor: pointer;
-    list-style: none;
-    display: flex;
-    justify-content: space-between;
-    gap: var(--space-4);
-    align-items: center;
-  }
-  .faq__q::-webkit-details-marker { display: none; }
-  .faq__q::after { content: "+"; color: var(--color-primary); font-size: var(--text-xl); }
-  .faq__item[open] .faq__q::after { content: "\2013"; }
-  .faq__a { color: var(--color-fg-muted); margin-top: var(--space-3); }
-
-  /* ---------- Abschluss + Formular ---------- */
-  .closer { background: var(--color-primary); color: var(--color-ink); }
-  .closer__grid { display: grid; gap: var(--space-12); align-items: center; }
-  @media (min-width: 900px) {
-    .closer__grid { grid-template-columns: 1fr 1fr; gap: var(--space-16); }
-  }
-  .closer__h {
-    font-size: var(--text-2xl);
-    margin-block: var(--space-4);
-    color: var(--color-ink);
-  }
+  /* ---------- Abschluss ---------- */
+  .closer { background: var(--color-ink); color: var(--color-on-ink); text-align: center; }
+  .closer__inner { display: flex; flex-direction: column; align-items: center; }
+  .closer__h { font-size: var(--text-2xl); margin-block: var(--space-6) var(--space-4); color: var(--color-on-ink); max-width: 20ch; }
   @media (min-width: 768px) { .closer__h { font-size: var(--text-3xl); } }
-  .closer__sub { color: rgba(15,27,24,0.8); font-size: var(--text-lg); }
-  .closer__bonus { margin-top: var(--space-4); color: var(--color-ink); }
+  .closer__sub { font-size: var(--text-lg); color: var(--color-on-ink-muted); max-width: 56ch; }
+  .closer__img { width: min(560px, 88%); margin-block: var(--space-12); }
 </style>
