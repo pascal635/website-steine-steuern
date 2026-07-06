@@ -11,7 +11,7 @@
 ---
 <dialog id="playbook-modal" class="modal" aria-labelledby="modal-title">
   <div class="modal__box">
-    <button type="button" class="modal__close" data-close-modal aria-label="Schliessen">&times;</button>
+    <button type="button" class="modal__close" data-close-modal aria-label="Schließen">&times;</button>
 
     <h2 id="modal-title" class="modal__title">Jetzt Playbook sichern</h2>
 
@@ -37,7 +37,7 @@
       <input type="hidden" name="or" value="ee67667d-9abe-43c0-97c8-a65670a9554c" />
 
       <div class="modal__hp" aria-hidden="true">
-        <label for="company">Firma (nicht ausfuellen)</label>
+        <label for="company">Firma (nicht ausfüllen)</label>
         <input type="text" id="company" name="company" tabindex="-1" autocomplete="off" />
       </div>
 
@@ -51,9 +51,9 @@
       <label class="modal__consent">
         <input type="checkbox" id="consent" name="consent" required />
         <span>Ich bin einverstanden, dass steine steuern FRIENDS mir das Playbook per Mail/WhatsApp
-        zusendet. Details in der <a href="/datenschutz" target="_blank">Datenschutzerklaerung</a>.</span>
+        zusendet. Details in der <a href="/datenschutz" target="_blank">Datenschutzerklärung</a>.</span>
       </label>
-      <p class="modal__err" id="modal-err" hidden>Bitte fuelle Name, E-Mail und die Einwilligung aus.</p>
+      <p class="modal__err" id="modal-err" hidden>Bitte fülle Name, E-Mail und die Einwilligung aus.</p>
 
       <button type="submit" class="btn btn--cta modal__submit">
         Jetzt das Steuer-Playbook kostenlos sichern!
@@ -143,7 +143,7 @@
       const err = document.getElementById("modal-err");
       if (!ok) { e.preventDefault(); if (err) err.hidden = false; return; }
       if (err) err.hidden = true;
-      // gueltig: Formular postet an ActiveCampaign (proc.php) ins verst. iframe.
+      // gültig: Formular postet an ActiveCampaign (proc.php) ins verst. iframe.
       // Nicht preventDefault -> AC erhaelt die Daten. Danach Erfolgszustand zeigen.
       setTimeout(() => {
         form.hidden = true;
