@@ -252,12 +252,14 @@ const subline =
   .hero__intro { text-align: center; max-width: 62rem; margin-inline: auto; }
   .hero__h1 { font-size: clamp(1.9rem, 4vw, var(--text-4xl)); margin-block: var(--space-6) var(--space-4); color: var(--color-on-ink); }
   .hero__h1 em { display: block; font-size: 0.55em; color: var(--color-on-ink-muted); margin-top: var(--space-3); }
-  .hero__sub { font-size: var(--text-lg); color: var(--color-on-ink-muted); max-width: 60ch; margin-inline: auto; }
+  .hero__sub { font-size: var(--text-base); color: var(--color-on-ink-muted); max-width: 70ch; margin-inline: auto; }
 
   /* Reihe 2: 50:50 */
-  .hero__cols { display: grid; grid-template-columns: 1fr; gap: var(--space-12); margin-top: var(--space-16); }
-  @media (min-width: 900px) { .hero__cols { grid-template-columns: 1fr 1fr; column-gap: var(--space-16); align-items: center; } }
+  .hero__cols { display: grid; grid-template-columns: 1fr; gap: var(--space-12); margin-top: var(--space-12); }
+  @media (min-width: 900px) { .hero__cols { grid-template-columns: 1fr 1fr; column-gap: var(--space-16); margin-top: var(--space-16); align-items: center; } }
   .hero__aside { display: flex; flex-direction: column; gap: var(--space-6); }
+  /* Mobile: Mockup + CTA direkt unter die Headline (vor die Nutzen-Bloecke) */
+  @media (max-width: 899px) { .hero__aside { order: -1; } }
   .hero__aside img { width: 100%; max-width: 520px; margin-inline: auto; }
   .hero .feat { border-top-color: rgba(255,255,255,0.14); }
   .hero .feat__icon { background: rgba(30,198,119,0.16); color: var(--color-primary); }
@@ -297,6 +299,6 @@ const subline =
   .closer__inner { display: flex; flex-direction: column; align-items: center; }
   .closer__h { font-size: var(--text-2xl); margin-block: var(--space-6) var(--space-4); color: var(--color-on-ink); max-width: 20ch; }
   @media (min-width: 768px) { .closer__h { font-size: var(--text-3xl); } }
-  .closer__sub { font-size: var(--text-lg); color: var(--color-on-ink-muted); max-width: 56ch; }
+  .closer__sub { font-size: var(--text-base); color: var(--color-on-ink-muted); max-width: 70ch; }
   .closer__img { width: min(560px, 88%); margin-block: var(--space-12); }
 </style>
