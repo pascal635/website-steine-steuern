@@ -15,14 +15,33 @@
 
     <h2 id="modal-title" class="modal__title">Jetzt Playbook sichern</h2>
 
-    {/* ================= ACTIVECAMPAIGN-EMBED HIER EINSETZEN ================= */}
-    <form id="playbook-form" class="modal__form" method="post" action="#" data-track="lead" novalidate>
+    {/* ActiveCampaign (Konto steineundsteuern, Formular id=3) — eigenes Design,
+        Post direkt an proc.php via verstecktes iframe (kein Fremd-JS beim Laden,
+        Daten gehen erst beim Absenden nach Consent raus). */}
+    <form
+      id="playbook-form"
+      class="modal__form"
+      method="POST"
+      action="https://steineundsteuern.activehosted.com/proc.php"
+      target="ac_iframe"
+      data-track="lead"
+      novalidate
+    >
+      <input type="hidden" name="u" value="6A4BBCC4A8350" />
+      <input type="hidden" name="f" value="3" />
+      <input type="hidden" name="s" />
+      <input type="hidden" name="c" value="0" />
+      <input type="hidden" name="m" value="0" />
+      <input type="hidden" name="act" value="sub" />
+      <input type="hidden" name="v" value="2" />
+      <input type="hidden" name="or" value="ee67667d-9abe-43c0-97c8-a65670a9554c" />
+
       <div class="modal__hp" aria-hidden="true">
         <label for="company">Firma (nicht ausfuellen)</label>
         <input type="text" id="company" name="company" tabindex="-1" autocomplete="off" />
       </div>
 
-      <input type="text" id="name" name="name" autocomplete="name" required
+      <input type="text" id="name" name="fullname" autocomplete="name" required
              placeholder="Dein Vor- & Nachname" aria-label="Vor- und Nachname" />
       <input type="email" id="email" name="email" autocomplete="email" inputmode="email" required
              placeholder="Deine E-Mail-Adresse" aria-label="E-Mail-Adresse" />
@@ -48,6 +67,8 @@
       <p>Check dein Postfach bzw. dein WhatsApp — dein Steuer-Playbook ist unterwegs.</p>
     </div>
   </div>
+  {/* AC-Post landet hier (verstecktes Ziel-iframe) — keine Seitennavigation, kein CORS */}
+  <iframe name="ac_iframe" title="ActiveCampaign" style="display:none" tabindex="-1" aria-hidden="true"></iframe>
 </dialog>
 
 <style>
@@ -113,20 +134,22 @@
 
     const form = document.getElementById("playbook-form") as HTMLFormElement | null;
     form?.addEventListener("submit", (e) => {
-      e.preventDefault();
       const hp = form.querySelector<HTMLInputElement>('input[name="company"]');
-      if (hp && hp.value) return; // Bot
+      if (hp && hp.value) { e.preventDefault(); return; } // Bot (Honeypot)
       const name = form.querySelector<HTMLInputElement>("#name")!;
       const email = form.querySelector<HTMLInputElement>("#email")!;
       const consent = form.querySelector<HTMLInputElement>("#consent")!;
       const ok = name.value.trim() && /.+@.+\..+/.test(email.value) && consent.checked;
       const err = document.getElementById("modal-err");
-      if (!ok) { if (err) err.hidden = false; return; }
+      if (!ok) { e.preventDefault(); if (err) err.hidden = false; return; }
       if (err) err.hidden = true;
-      // TODO(AC): POST an ActiveCampaign bzw. AC-Embed uebernimmt. Tracking via data-track="lead".
-      form.hidden = true;
-      const s = document.getElementById("playbook-success");
-      if (s) s.hidden = false;
+      // gueltig: Formular postet an ActiveCampaign (proc.php) ins verst. iframe.
+      // Nicht preventDefault -> AC erhaelt die Daten. Danach Erfolgszustand zeigen.
+      setTimeout(() => {
+        form.hidden = true;
+        const s = document.getElementById("playbook-success");
+        if (s) s.hidden = false;
+      }, 60);
     });
   }
 </script>
